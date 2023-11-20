@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>docker 一键安装命令</title>
+    <url>/docker%20%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4-0ee259ad053c/</url>
+    <content><![CDATA[<p>docker的一键安装指令（脚本目前好像只能适用于Ubuntu和Debian，centos也可以）</p>
+<span id="more"></span>
+<p>1.官方给的命令（推荐）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure>
+
+<p>2.DaoCloud的（国内DaoCloud的快一些）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装Code-server使用并配置https</title>
+    <url>/%E5%AE%89%E8%A3%85Code-server%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AEhttps-11235da5e10d/</url>
+    <content><![CDATA[<p>在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。<br>查了一下，需要在https加密模式下才能在浏览器中正常使用功能。<br>自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名，<br>最后用的是本地签名证书。</p>
+<h3 id="I-安装-启动"><a href="#I-安装-启动" class="headerlink" title="I 安装&amp;启动"></a>I 安装&amp;启动</h3><p>GitHub地址：<a href="https://github.com/coder/code-server/">https://github.com/coder/code-server/</a></p>
+<span id="more"></span>
+<p>安装命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://code-server.dev/install.sh | sh</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120112934.png"></p>
+<p>现在你有两种方式来启动 code-server：</p>
+<h3 id="先手动启动生成默认配置文件"><a href="#先手动启动生成默认配置文件" class="headerlink" title="先手动启动生成默认配置文件"></a>先手动启动生成默认配置文件</h3><ol>
+<li><strong>手动启动</strong>：如果你不希望 code-server 作为后台服务运行，你可以手动启动它：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">code-server</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120113347.png"></p>
+<ol start="2">
+<li><strong>作为系统服务启动</strong>：这将使 code-server 在后台运行，并在开机时自动启动。只需执行以下命令：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> --now code-server@root</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120113443.png"></p>
+<p>在这里，<code>$USER</code> 是环境变量，表示当前用户名。如果你想要以其他用户身份运行 code-server，你需要将 <code>$USER</code> 替换为相应的用户名。</p>
+<p>一旦 code-server 启动，你就可以通过 <a href="http://localhost:8080/">http://localhost:8080</a> （默认端口是 8080）在你的浏览器中访问它了。如果你在远程服务器上安装了 code-server，你需要替换 <code>localhost</code> 为你服务器的公网 IP 地址或域名，并确保防火墙设置允许流量通过 8080 端口。</p>
+<p>首次访问 code-server 时，你会被要求输入一个密码。这个密码是为了保护你的 code-server 实例不被未授权访问。你可以在启动 code-server 时通过 <code>--auth</code> 选项设置密码，或者在 <code>~/.config/code-server/config.yaml</code> 文件中进行配置。</p>
+<p>查看配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.config/code-server/config.yaml</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120113556.png"></p>
+<p>password 字段的密码是随机生成的，你可以自己修改</p>
+<p>改动配置文件（vim）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.config/code-server/config.yaml </span><br></pre></td></tr></table></figure>
+<p>修改 bind-addr 字段的IP为 本地局域网ip</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120115422.png"></p>
+<p>重启Code-Server 服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart code-server@root</span><br></pre></td></tr></table></figure>
+
+<p>然后在同一局域网下访问host地址，输入密码即可。</p>
+<h5 id="此时是http，没有加载证书"><a href="#此时是http，没有加载证书" class="headerlink" title="此时是http，没有加载证书"></a>此时是http，没有加载证书</h5><p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120115745.png"></p>
+<h3 id="II-配置本地https"><a href="#II-配置本地https" class="headerlink" title="II 配置本地https"></a>II 配置本地https</h3><p>使用mkcert 生成相应网址的证书: 示例 本地地址为192.168.1.223</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># $ mkcert [website addr]  192.168.1.223为服务器的内网网址</span></span><br><span class="line"><span class="comment"># -cert-file [filename] 生成对应crt文件的名称</span></span><br><span class="line"><span class="comment"># -cert-key [filename] 生成对应key文件的名称</span></span><br><span class="line">$ mkcert -cert-file phone-code-server.crt -key-file phone-code-server.key 192.168.1.223 127.0.0.1</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120115948.png"></p>
+<p>在&#x2F;root&#x2F;.local&#x2F;share&#x2F;code-server&#x2F;下创建cert文件夹</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span>  ~/.local/share/code-server/cert</span><br></pre></td></tr></table></figure>
+
+<p>复制刚刚生成的证书文件到~&#x2F;.local&#x2F;share&#x2F;code-server&#x2F;cert目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> /root/phone-code-server.key ~/.local/share/code-server/cert/</span><br><span class="line"><span class="built_in">cp</span> /root/phone-code-server.crt ~/.local/share/code-server/cert/</span><br></pre></td></tr></table></figure>
+
+<p>再次改动配置文件（vim）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.config/code-server/config.yaml </span><br></pre></td></tr></table></figure>
+<p>如下 修改证书位置，刚刚证书文件已经复制过去了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bind-addr: 192.168.1.223:8080</span><br><span class="line">auth: password</span><br><span class="line">password: df90f81c4355ffe98172dbe1</span><br><span class="line">cert: /root/.local/share/code-server/cert/phone-code-server.crt</span><br><span class="line">cert-key: /root/.local/share/code-server/cert/phone-code-server.key</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120120628.png"></p>
+<p>重启Code-Server 服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart code-server@root</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120120853.png"></p>
+<p>因为是本地证书，所以我们要把证书导出，再安装到访问客户端才可以</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkcert  -install</span><br><span class="line">mkcert -CAROOT</span><br><span class="line"><span class="built_in">cd</span> /home/</span><br><span class="line"><span class="built_in">cp</span> /root/.local/share/mkcert/rootCA.pem /home/  <span class="comment">#将证书复制到home目录 方便一会导出</span></span><br><span class="line"><span class="built_in">mv</span> rootCA.pem rootCA.crt  <span class="comment">#重命名为crt，方便Windows导入</span></span><br></pre></td></tr></table></figure>
+<p>现在登陆 code-server web</p>
+<h6 id="选择资源管理器"><a href="#选择资源管理器" class="headerlink" title="选择资源管理器"></a>选择资源管理器</h6><p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120121341.png"></p>
+<h6 id="选择”open-folder”"><a href="#选择”open-folder”" class="headerlink" title="选择”open folder”"></a>选择”open folder”</h6><p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120121419.png"></p>
+<h6 id="切换到home目录"><a href="#切换到home目录" class="headerlink" title="切换到home目录"></a>切换到home目录</h6><p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120121526.png"></p>
+<h6 id="信任"><a href="#信任" class="headerlink" title="信任"></a>信任</h6><p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120121600.png"></p>
+<h6 id="选择刚刚重命名的证书文件-点击下载"><a href="#选择刚刚重命名的证书文件-点击下载" class="headerlink" title="选择刚刚重命名的证书文件 点击下载"></a>选择刚刚重命名的证书文件 点击下载</h6><p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120121654.png"></p>
+<h6 id="Windows-安装，受信任的根证书"><a href="#Windows-安装，受信任的根证书" class="headerlink" title="Windows 安装，受信任的根证书"></a>Windows 安装，受信任的根证书</h6><p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120121959.png"></p>
+<h6 id="导入完成后，重新打开浏览器，打开code-server-可以看到已经生效了https"><a href="#导入完成后，重新打开浏览器，打开code-server-可以看到已经生效了https" class="headerlink" title="导入完成后，重新打开浏览器，打开code-server,可以看到已经生效了https"></a>导入完成后，重新打开浏览器，打开code-server,可以看到已经生效了https</h6><p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120122054.png"></p>
+<h6 id="重新登陆后可以到拓展市场，安装简体中文包"><a href="#重新登陆后可以到拓展市场，安装简体中文包" class="headerlink" title="重新登陆后可以到拓展市场，安装简体中文包"></a>重新登陆后可以到拓展市场，安装简体中文包</h6><p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120122314.png"></p>
+<h6 id="选择菜单，终端，使用很方便！！！"><a href="#选择菜单，终端，使用很方便！！！" class="headerlink" title="选择菜单，终端，使用很方便！！！"></a>选择菜单，终端，使用很方便！！！</h6><p><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120122512.png"></p>
+<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3>]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>Code Server</tag>
+        <tag>https</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修正PVE中 LXC容器的时区和时间</title>
+    <url>/%E8%B0%83%E6%95%B4LXC%E5%AE%B9%E5%99%A8%E6%97%B6%E9%97%B4-fed1903aae45/</url>
+    <content><![CDATA[<p>查看当前系统时间</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">date</span></span><br></pre></td></tr></table></figure>
+
+
+<p>这个命令会将系统时区设置为 Asia&#x2F;Shanghai，它对应于中国大陆的标准时间，即东八区</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo timedatectl set-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>可以用以下命令确认时区设置是否成功：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">timedatectl</span><br></pre></td></tr></table></figure>
+
+<p>手动强制一次时间同步，可以使用 <code>timedatectl</code> 命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo timedatectl set-ntp off</span><br><span class="line">sudo timedatectl set-ntp on</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+</search>

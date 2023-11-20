@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Kaixin09&#39;s Blog</title>
+  
+  <subtitle>This Kaixin09</subtitle>
+  <link href="https://blog.kaixin09.cn/atom.xml" rel="self"/>
+  
+  <link href="https://blog.kaixin09.cn/"/>
+  <updated>2023-11-20T11:56:04.975Z</updated>
+  <id>https://blog.kaixin09.cn/</id>
+  
+  <author>
+    <name>Kaixin09</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安装Code-server使用并配置https</title>
+    <link href="https://blog.kaixin09.cn/%E5%AE%89%E8%A3%85Code-server%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AEhttps-11235da5e10d/"/>
+    <id>https://blog.kaixin09.cn/%E5%AE%89%E8%A3%85Code-server%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AEhttps-11235da5e10d/</id>
+    <published>2023-11-20T03:00:29.000Z</published>
+    <updated>2023-11-20T11:56:04.975Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。&lt;br&gt;查了一下，需要在https加密模式下才能在浏览器中正常使用功能。&lt;br&gt;自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名，&lt;br&gt;最后用的是本地签名证书。&lt;/p&gt;
+&lt;h3 id=&quot;I-安装-启动&quot;&gt;&lt;a href=&quot;#I-安装-启动&quot; class=&quot;headerlink&quot; title=&quot;I 安装&amp;amp;启动&quot;&gt;&lt;/a&gt;I 安装&amp;amp;启动&lt;/h3&gt;&lt;p&gt;GitHub地址：&lt;a href=&quot;https://github.com/coder/code-server/&quot;&gt;https://github.com/coder/code-server/&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.kaixin09.cn/tags/linux/"/>
+    
+    <category term="Code Server" scheme="https://blog.kaixin09.cn/tags/Code-Server/"/>
+    
+    <category term="https" scheme="https://blog.kaixin09.cn/tags/https/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 一键安装命令</title>
+    <link href="https://blog.kaixin09.cn/docker%20%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4-0ee259ad053c/"/>
+    <id>https://blog.kaixin09.cn/docker%20%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4-0ee259ad053c/</id>
+    <published>2023-11-20T02:45:46.000Z</published>
+    <updated>2023-11-20T11:56:15.039Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;docker的一键安装指令（脚本目前好像只能适用于Ubuntu和Debian，centos也可以）&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Linux" scheme="https://blog.kaixin09.cn/tags/Linux/"/>
+    
+    <category term="docker" scheme="https://blog.kaixin09.cn/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>修正PVE中 LXC容器的时区和时间</title>
+    <link href="https://blog.kaixin09.cn/%E8%B0%83%E6%95%B4LXC%E5%AE%B9%E5%99%A8%E6%97%B6%E9%97%B4-fed1903aae45/"/>
+    <id>https://blog.kaixin09.cn/%E8%B0%83%E6%95%B4LXC%E5%AE%B9%E5%99%A8%E6%97%B6%E9%97%B4-fed1903aae45/</id>
+    <published>2023-11-15T04:48:21.000Z</published>
+    <updated>2023-11-20T11:56:10.519Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;查看当前系统时间&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;date&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;这个命令会将系统时区设置为 Asia&amp;#x2F;Shanghai，它对应于中国大陆的标准时间，即东八区&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo timedatectl set-timezone Asia/Shanghai&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>
