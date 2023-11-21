@@ -23,13 +23,14 @@
   <title>安装Code-server使用并配置https - Kaixin09</title>
 
   
-    <meta name="description" content="在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。查了一下，需要在https加密模式下才能在浏览器中正常使用功能。自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名，最后用的是本地签名证书。 I 安装&amp;启动GitHub地址：https:&#x2F;&#x2F;github.com&#x2F;coder&#x2F;code-server&#x2F; 安装命令 1curl -fsS">
+    <meta name="description" content="在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。查了一下，需要在https加密模式下才能在浏览器中正常使用功能。 自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名， 最后用的是本地签名证书。  I 安装&amp;启动GitHub地址：    安装命令     现在你有两种方式来启动 code-server： 先手动启动生成默认配置文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安装Code-server使用并配置https">
 <meta property="og:url" content="https://blog.kaixin09.cn/%E5%AE%89%E8%A3%85Code-server%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AEhttps-11235da5e10d/index.html">
 <meta property="og:site_name" content="Kaixin09">
-<meta property="og:description" content="在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。查了一下，需要在https加密模式下才能在浏览器中正常使用功能。自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名，最后用的是本地签名证书。 I 安装&amp;启动GitHub地址：https:&#x2F;&#x2F;github.com&#x2F;coder&#x2F;code-server&#x2F; 安装命令 1curl -fsS">
+<meta property="og:description" content="在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。查了一下，需要在https加密模式下才能在浏览器中正常使用功能。 自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名， 最后用的是本地签名证书。  I 安装&amp;启动GitHub地址：    安装命令     现在你有两种方式来启动 code-server： 先手动启动生成默认配置文">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github-readme-stats.xaoxuu.com/api/pin/?username=coder&repo=code-server&theme=dark&show_owner=true">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120112934.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120113347.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120113443.png">
@@ -49,13 +50,13 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120122314.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120122512.png">
 <meta property="article:published_time" content="2023-11-20T03:00:29.000Z">
-<meta property="article:modified_time" content="2023-11-20T13:07:45.751Z">
+<meta property="article:modified_time" content="2023-11-21T13:53:44.098Z">
 <meta property="article:author" content="Kaixin09">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="Code Server">
 <meta property="article:tag" content="https">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120112934.png">
+<meta name="twitter:image" content="https://github-readme-stats.xaoxuu.com/api/pin/?username=coder&repo=code-server&theme=dark&show_owner=true">
   
   
   
@@ -96,9 +97,9 @@
 
   
 
-<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120194143.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Kaixin09</div><div class="sub cap">This Kaixin09</div></a></div>
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120194143.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Kaixin09</div><div class="sub normal cap">This</div><div class="sub hover cap" style="opacity:0"> Kaixin09</div></a></div>
 
-<nav class="menu dis-select"></nav>
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/friends/">友链</a><a class="nav-item" href="/about/">关于</a></nav>
 </header>
 
 
@@ -126,10 +127,15 @@
 
 <article class='md-text content post'>
 <h1 class="article-title"><span>安装Code-server使用并配置https</span></h1>
-<p>在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。<br>查了一下，需要在https加密模式下才能在浏览器中正常使用功能。<br>自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名，<br>最后用的是本地签名证书。</p>
-<h3 id="I-安装-启动"><a href="#I-安装-启动" class="headerlink" title="I 安装&amp;启动"></a>I 安装&amp;启动</h3><p>GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/coder/code-server/">https://github.com/coder/code-server/</a></p>
+<div class="tag-plugin note" color="cyan"><div class="title">在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。</div><div class="body"><p>查了一下，需要在https加密模式下才能在浏览器中正常使用功能。 自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名， 最后用的是本地签名证书。</p></div></div>
+
+<h3 id="I-安装-启动"><a href="#I-安装-启动" class="headerlink" title="I 安装&amp;启动"></a>I 安装&amp;启动</h3><p>GitHub地址：</p>
+<div class="tag-plugin ghcard"><a class="ghcard" rel="external nofollow noopener noreferrer noopener" target="_blank" href="https://github.com/coder/code-server"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://github-readme-stats.xaoxuu.com/api/pin/?username=coder&repo=code-server&theme=dark&show_owner=true"/></a></div>
+
+
 <p>安装命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://code-server.dev/install.sh | sh</span><br></pre></td></tr></table></figure>
+<div class="tag-plugin copy"><input class="copy-area" readonly id="copy_1" value="curl -fsSL https://code-server.dev/install.sh | sh"><button class="copy-btn" onclick="util.copy(&quot;copy_1&quot;,&quot;Copied!&quot;)"><svg class="icon copy-btn" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg></button></div>
+
 <div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120112934.png"/></div></div>
 
 <p>现在你有两种方式来启动 code-server：</p>
@@ -183,7 +189,8 @@
 <p>再次改动配置文件（vim）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.config/code-server/config.yaml </span><br></pre></td></tr></table></figure>
 <p>如下 修改证书位置，刚刚证书文件已经复制过去了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bind-addr: 192.168.1.223:8080</span><br><span class="line">auth: password</span><br><span class="line">password: df90f81c4355ffe98172dbe1</span><br><span class="line">cert: /root/.local/share/code-server/cert/phone-code-server.crt</span><br><span class="line">cert-key: /root/.local/share/code-server/cert/phone-code-server.key</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bind-addr:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.223</span><span class="string">:8080</span></span><br><span class="line"><span class="attr">auth:</span> <span class="string">password</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">df90f81c4355ffe98172dbe1</span></span><br><span class="line"><span class="attr">cert:</span> <span class="string">/root/.local/share/code-server/cert/phone-code-server.crt</span></span><br><span class="line"><span class="attr">cert-key:</span> <span class="string">/root/.local/share/code-server/cert/phone-code-server.key</span></span><br></pre></td></tr></table></figure>
+
 <div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120120628.png"/></div></div>
 
 <p>重启Code-Server 服务</p>
@@ -229,8 +236,28 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer fs12"><hr><div><p>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处</p>
+<p>本站由 <a href="https://blog.kaixin09.cn/">@Kaixin09</a> 创建，托管于 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> &amp; <a target="_blank" rel="noopener" href="https://cloudbase.net/">云开发CloudBase</a> &amp; <a target="_blank" rel="noopener" href="https://vercel.com/">Vercel</a>，鲁ICP备20030006号</p>
+<div><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div><p><a target="_blank" rel="noopener" href="https://travellings.link/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="100"></a></p>
 </div></footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+  function createtime() {
+    var now = new Date();
+    var grt= new Date("11/15/2023 20:00:00");
+    now.setTime(now.getTime()+250);
+    days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+    hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+    if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+    seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+    document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+  };
+  setInterval("createtime()",250);
+</script>
+
 
       <div class='float-panel mobile-only blur' style='display:none'>
   <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>

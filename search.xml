@@ -17,10 +17,15 @@
   <entry>
     <title>安装Code-server使用并配置https</title>
     <url>/%E5%AE%89%E8%A3%85Code-server%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AEhttps-11235da5e10d/</url>
-    <content><![CDATA[<p>在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。<br>查了一下，需要在https加密模式下才能在浏览器中正常使用功能。<br>自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名，<br>最后用的是本地签名证书。</p>
-<h3 id="I-安装-启动"><a href="#I-安装-启动" class="headerlink" title="I 安装&amp;启动"></a>I 安装&amp;启动</h3><p>GitHub地址：<a href="https://github.com/coder/code-server/">https://github.com/coder/code-server/</a></p>
+    <content><![CDATA[<div class="tag-plugin note" color="cyan"><div class="title">在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。</div><div class="body"><p>查了一下，需要在https加密模式下才能在浏览器中正常使用功能。 自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名， 最后用的是本地签名证书。</p></div></div>
+
+<h3 id="I-安装-启动"><a href="#I-安装-启动" class="headerlink" title="I 安装&amp;启动"></a>I 安装&amp;启动</h3><p>GitHub地址：</p>
+<div class="tag-plugin ghcard"><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/coder/code-server"><img src="https://github-readme-stats.xaoxuu.com/api/pin/?username=coder&repo=code-server&theme=dark&show_owner=true"/></a></div>
+
+
 <p>安装命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://code-server.dev/install.sh | sh</span><br></pre></td></tr></table></figure>
+<div class="tag-plugin copy"><input class="copy-area" readonly id="copy_1" value="curl -fsSL https://code-server.dev/install.sh | sh"><button class="copy-btn" onclick="util.copy(&quot;copy_1&quot;,&quot;Copied!&quot;)"><svg class="icon copy-btn" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg></button></div>
+
 <div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120112934.png"/></div></div>
 
 <p>现在你有两种方式来启动 code-server：</p>
@@ -74,7 +79,8 @@
 <p>再次改动配置文件（vim）：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.config/code-server/config.yaml </span><br></pre></td></tr></table></figure>
 <p>如下 修改证书位置，刚刚证书文件已经复制过去了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bind-addr: 192.168.1.223:8080</span><br><span class="line">auth: password</span><br><span class="line">password: df90f81c4355ffe98172dbe1</span><br><span class="line">cert: /root/.local/share/code-server/cert/phone-code-server.crt</span><br><span class="line">cert-key: /root/.local/share/code-server/cert/phone-code-server.key</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">bind-addr:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.223</span><span class="string">:8080</span></span><br><span class="line"><span class="attr">auth:</span> <span class="string">password</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">df90f81c4355ffe98172dbe1</span></span><br><span class="line"><span class="attr">cert:</span> <span class="string">/root/.local/share/code-server/cert/phone-code-server.crt</span></span><br><span class="line"><span class="attr">cert-key:</span> <span class="string">/root/.local/share/code-server/cert/phone-code-server.key</span></span><br></pre></td></tr></table></figure>
+
 <div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120120628.png"/></div></div>
 
 <p>重启Code-Server 服务</p>
@@ -110,7 +116,7 @@
       </tags>
   </entry>
   <entry>
-    <title>修正PVE中 LXC容器的时区和时间</title>
+    <title>修正ubuntu的时区和时间</title>
     <url>/%E8%B0%83%E6%95%B4LXC%E5%AE%B9%E5%99%A8%E6%97%B6%E9%97%B4-fed1903aae45/</url>
     <content><![CDATA[<p>查看当前系统时间</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">date</span></span><br></pre></td></tr></table></figure>

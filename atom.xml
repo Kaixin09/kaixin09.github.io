@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Kaixin09</title>
   
-  <subtitle>This Kaixin09</subtitle>
+  <subtitle>This | Kaixin09</subtitle>
   <link href="https://blog.kaixin09.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.kaixin09.cn/"/>
-  <updated>2023-11-20T13:07:45.751Z</updated>
+  <updated>2023-11-21T13:53:44.098Z</updated>
   <id>https://blog.kaixin09.cn/</id>
   
   <author>
@@ -21,12 +21,12 @@
     <link href="https://blog.kaixin09.cn/%E5%AE%89%E8%A3%85Code-server%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AEhttps-11235da5e10d/"/>
     <id>https://blog.kaixin09.cn/%E5%AE%89%E8%A3%85Code-server%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AEhttps-11235da5e10d/</id>
     <published>2023-11-20T03:00:29.000Z</published>
-    <updated>2023-11-20T13:07:45.751Z</updated>
+    <updated>2023-11-21T13:53:44.098Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt;在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。&lt;br&gt;查了一下，需要在https加密模式下才能在浏览器中正常使用功能。&lt;br&gt;自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名，&lt;br&gt;最后用的是本地签名证书</summary>
+    <summary type="html">&lt;div class=&quot;tag-plugin note&quot; color=&quot;cyan&quot;&gt;&lt;div class=&quot;title&quot;&gt;在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;p&gt;查了一下，需要</summary>
       
     
     
@@ -45,7 +45,7 @@
     <link href="https://blog.kaixin09.cn/docker%20%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4-0ee259ad053c/"/>
     <id>https://blog.kaixin09.cn/docker%20%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4-0ee259ad053c/</id>
     <published>2023-11-20T02:45:46.000Z</published>
-    <updated>2023-11-20T13:51:06.362Z</updated>
+    <updated>2023-11-21T13:45:51.511Z</updated>
     
     
       
@@ -65,11 +65,11 @@
   </entry>
   
   <entry>
-    <title>修正PVE中 LXC容器的时区和时间</title>
+    <title>修正ubuntu的时区和时间</title>
     <link href="https://blog.kaixin09.cn/%E8%B0%83%E6%95%B4LXC%E5%AE%B9%E5%99%A8%E6%97%B6%E9%97%B4-fed1903aae45/"/>
     <id>https://blog.kaixin09.cn/%E8%B0%83%E6%95%B4LXC%E5%AE%B9%E5%99%A8%E6%97%B6%E9%97%B4-fed1903aae45/</id>
     <published>2023-11-15T04:48:21.000Z</published>
-    <updated>2023-11-20T13:50:27.130Z</updated>
+    <updated>2023-11-21T13:45:46.439Z</updated>
     
     
       
