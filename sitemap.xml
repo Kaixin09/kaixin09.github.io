@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.kaixin09.cn/b00a20a1ed8e/</loc>
+    
+    <lastmod>2023-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kaixin09.cn/11235da5e10d/</loc>
+    
+    <lastmod>2023-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.kaixin09.cn/d97d6cf71fd7/</loc>
     
     <lastmod>2023-11-22</lastmod>
@@ -57,15 +75,6 @@
   
   <url>
     <loc>https://blog.kaixin09.cn/3ab5f2264bd0/</loc>
-    
-    <lastmod>2023-11-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.kaixin09.cn/11235da5e10d/</loc>
     
     <lastmod>2023-11-22</lastmod>
     
