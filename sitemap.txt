@@ -1,3 +1,4 @@
+https://blog.kaixin09.cn/e8ae4aaeef2f/
 https://blog.kaixin09.cn/about/index.html
 https://blog.kaixin09.cn/friends/index.html
 https://blog.kaixin09.cn/wiki/index.html
@@ -13,6 +14,8 @@ https://blog.kaixin09.cn/tags/index.html
 https://blog.kaixin09.cn/
 https://blog.kaixin09.cn/tags/Linux/
 https://blog.kaixin09.cn/tags/docker/
+https://blog.kaixin09.cn/tags/OpenAi/
+https://blog.kaixin09.cn/tags/Vercel/
 https://blog.kaixin09.cn/tags/linux/
 https://blog.kaixin09.cn/tags/Code-Server/
 https://blog.kaixin09.cn/tags/https/

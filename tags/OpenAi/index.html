@@ -5,7 +5,7 @@
   <meta name="generator" content="Hexo 7.0.0">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0">
   <meta charset="utf-8">
-  
+  <meta name="robots" content="noindex,follow">
 
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
@@ -20,32 +20,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>安装SafeLine Web 安全网关 - Kaixin09</title>
+  <title>标签：OpenAi - Kaixin09</title>
 
   
-    <meta name="description" content="这是一个自带安全 buf 的 Nginx，它基于业界领先的语义分析检测技术开发，作为反向代理接入，保护你的网站不受黑客攻击。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="安装SafeLine Web 安全网关">
-<meta property="og:url" content="https://blog.kaixin09.cn/36d1b72d6cde/index.html">
+    <meta name="description" content="Learning record Kaixin09">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kaixin09">
+<meta property="og:url" content="https://blog.kaixin09.cn/tags/OpenAi/index.html">
 <meta property="og:site_name" content="Kaixin09">
-<meta property="og:description" content="这是一个自带安全 buf 的 Nginx，它基于业界领先的语义分析检测技术开发，作为反向代理接入，保护你的网站不受黑客攻击。">
+<meta property="og:description" content="Learning record Kaixin09">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github-readme-stats.xaoxuu.com/api/pin/?username=chaitin&repo=SafeLine&theme=dark&show_owner=true">
-<meta property="og:image" content="https://waf-ce.chaitin.cn/images/gif/login.gif">
-<meta property="og:image" content="https://waf-ce.chaitin.cn/images/gif/config_site.gif">
-<meta property="og:image" content="https://waf-ce.chaitin.cn/images/gif/detect_log.gif">
-<meta property="article:published_time" content="2023-11-22T04:39:32.000Z">
-<meta property="article:modified_time" content="2023-11-22T05:48:25.378Z">
 <meta property="article:author" content="Kaixin09">
-<meta property="article:tag" content="docker">
-<meta property="article:tag" content="安全网关">
-<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github-readme-stats.xaoxuu.com/api/pin/?username=chaitin&repo=SafeLine&theme=dark&show_owner=true">
   
   
   
-  <meta name="keywords" content="docker,安全网关,nginx">
+  
 
   <!-- feed -->
   
@@ -74,10 +64,8 @@
   
 
 
-
-
   <div class='l_body' id='start'>
-    <aside class='l_left' layout='post'>
+    <aside class='l_left' layout=''>
     
 
   
@@ -91,76 +79,33 @@
 <div class="widgets">
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
+<widget class="widget-wrapper recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/e8ae4aaeef2f/"><span class="title">使用 Vercel 反代 Openai</span></a><a class="item title" href="/36d1b72d6cde/"><span class="title">安装SafeLine Web 安全网关</span></a><a class="item title" href="/3ab5f2264bd0/"><span class="title">部署Docker管理工具 Portainer-CE 社区</span></a><a class="item title" href="/11235da5e10d/"><span class="title">安装Code-server使用并配置https</span></a><a class="item title" href="/0ee259ad053c/"><span class="title">docker 一键安装命令</span></a></div></widget>
 
-<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">安装SafeLine Web 安全网关</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%80-%E5%AE%89%E8%A3%85"><span class="toc-text">🚀 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9C%80%E6%B1%82"><span class="toc-text">配置需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BB%E5%BD%95"><span class="toc-text">登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%98%B2%E6%8A%A4%E7%AB%99%E7%82%B9"><span class="toc-text">配置防护站点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%95%88%E6%9E%9C"><span class="toc-text">测试效果</span></a></li></ol></li></ol></div></div></widget>
-
-
-
-
+<widget class="widget-wrapper timeline"><div class="widget-header cap theme dis-select"><span class="name">近期动态</span></div><div class="widget-body fs14"><div class="tag-plugin timeline stellar-timeline-api" api="https://api.github.com/repos/Kaixin09/hexofile/issues" user="Kaixin09"></div></div></widget>
 </div>
 
 
     </aside>
-    <div class='l_main'>
+    <div class='l_main list'>
+      
+  
+
+<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120194143.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Kaixin09</div><div class="sub normal cap">This</div><div class="sub hover cap" style="opacity:0"> Kaixin09</div></a></div></header>
+
+
+
       
 
-      
+  
 
 
+  
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-11-22T04:39:32.000Z">2023-11-22</time></div></div>
-
-<article class='md-text content post'>
-<h1 class="article-title"><span>安装SafeLine Web 安全网关</span></h1>
-<p>这是一个自带安全 buf 的 Nginx，它基于业界领先的语义分析检测技术开发，作为反向代理接入，保护你的网站不受黑客攻击。</p>
-<span id="more"></span>
-
-<p>GitHub地址：</p>
-<div class="tag-plugin ghcard"><a class="ghcard" rel="external nofollow noopener noreferrer noopener" target="_blank" href="https://github.com/chaitin/SafeLine"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://github-readme-stats.xaoxuu.com/api/pin/?username=chaitin&repo=SafeLine&theme=dark&show_owner=true"/></a></div>
-
-<p>SafeLine 官网提供了多种部署方案，最简单的是一键安装方案，执行以下命令。</p>
-<h2 id="🚀-安装"><a href="#🚀-安装" class="headerlink" title="🚀 安装"></a>🚀 安装</h2><h3 id="配置需求"><a href="#配置需求" class="headerlink" title="配置需求"></a>配置需求</h3><ul>
-<li>操作系统：Linux</li>
-<li>指令架构：x86_64</li>
-<li>软件依赖：Docker 20.10.6 版本以上</li>
-<li>软件依赖：Docker Compose 2.0.0 版本以上</li>
-<li>最小化环境：1 核 CPU &#x2F; 1 GB 内存 &#x2F; 10 GB 磁盘</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl -fsSLk https://waf-ce.chaitin.cn/release/latest/setup.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>其他安装方式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/chaitin/SafeLine.git</span><br><span class="line"><span class="built_in">cd</span> SafeLine</span><br><span class="line">bash ./release/latest/setup.sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p>浏览器打开后台管理页面 <code>https://&lt;waf-ip&gt;:9443</code>。根据界面提示，使用 <strong>支持 TOTP 的认证软件</strong> 扫描二维码，然后输入动态口令登录：</p>
-<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://waf-ce.chaitin.cn/images/gif/login.gif"/></div></div>
-
-
-<h3 id="配置防护站点"><a href="#配置防护站点" class="headerlink" title="配置防护站点"></a>配置防护站点</h3><p>雷池以反向代理方式接入，优先于网站服务器接收流量，对流量中的攻击行为进行检测和清洗，将清洗过后的流量转发给网站服务器。</p>
-<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://waf-ce.chaitin.cn/images/gif/config_site.gif"/></div></div>
-
-<p><font color=grey>💡 TIPS: 添加后，执行 <code>curl -H &quot;Host: &lt;域名&gt;&quot; http://&lt;WAF IP&gt;:&lt;端口&gt;</code> 应能获取到业务网站的响应。</font></p>
-<h3 id="测试效果"><a href="#测试效果" class="headerlink" title="测试效果"></a>测试效果</h3><p>使用以下方式尝试模拟黑客攻击，看看雷池的防护效果如何</p>
-<ul>
-<li>浏览器访问 <code>http://&lt;IP或域名&gt;:&lt;端口&gt;/?id=1%20AND%201=1</code></li>
-<li>浏览器访问 <code>http://&lt;IP或域名&gt;:&lt;端口&gt;/?a=&lt;script&gt;alert(1)&lt;/script&gt;</code></li>
-</ul>
-<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://waf-ce.chaitin.cn/images/gif/detect_log.gif"/></div></div>
-
-<blockquote>
-<p>如果你需要进行深度测试，请参考 <a target="_blank" rel="noopener" href="https://waf-ce.chaitin.cn/posts/guide_test">测试防护效果</a></p>
-</blockquote>
-
-
-
-<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
-</div></section></div>
-
-</article>
-
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/e8ae4aaeef2f/">使用 Vercel 反代 Openai</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/11235da5e10d/">安装Code-server使用并配置https</a></div></section></div>
-
-
-
+<div class="nav-wrap"><nav class="sub post cap"><a href="/">近期发布</a><a class="active" href="/tags">标签：OpenAi</a><a href="/archives">归档</a></nav></div>
+  <div class="post-list post"><a class="post-card post " href="/e8ae4aaeef2f/">
+<article class="md-text"><h2 class="post-title">使用 Vercel 反代 Openai</h2><div class="excerpt"><p>https://YOUR DOMAIN（改成你的域名）&#x2F;v1&#x2F;chat&#x2F;completions</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2023-11-22T13:55:21.000Z">2023-11-22</time></span></div></article>
+</a></div>
+  
 
 
 
