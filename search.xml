@@ -116,6 +116,53 @@
       </tags>
   </entry>
   <entry>
+    <title>安装SafeLine Web 安全网关</title>
+    <url>/36d1b72d6cde/</url>
+    <content><![CDATA[<p>这是一个自带安全 buf 的 Nginx，它基于业界领先的语义分析检测技术开发，作为反向代理接入，保护你的网站不受黑客攻击。</p>
+<span id="more"></span>
+
+<p>GitHub地址：</p>
+<div class="tag-plugin ghcard"><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/chaitin/SafeLine"><img src="https://github-readme-stats.xaoxuu.com/api/pin/?username=chaitin&repo=SafeLine&theme=dark&show_owner=true"/></a></div>
+
+<p>SafeLine 官网提供了多种部署方案，最简单的是一键安装方案，执行以下命令。</p>
+<h2 id="🚀-安装"><a href="#🚀-安装" class="headerlink" title="🚀 安装"></a>🚀 安装</h2><h3 id="配置需求"><a href="#配置需求" class="headerlink" title="配置需求"></a>配置需求</h3><ul>
+<li>操作系统：Linux</li>
+<li>指令架构：x86_64</li>
+<li>软件依赖：Docker 20.10.6 版本以上</li>
+<li>软件依赖：Docker Compose 2.0.0 版本以上</li>
+<li>最小化环境：1 核 CPU &#x2F; 1 GB 内存 &#x2F; 10 GB 磁盘</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl -fsSLk https://waf-ce.chaitin.cn/release/latest/setup.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>其他安装方式：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/chaitin/SafeLine.git</span><br><span class="line"><span class="built_in">cd</span> SafeLine</span><br><span class="line">bash ./release/latest/setup.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p>浏览器打开后台管理页面 <code>https://&lt;waf-ip&gt;:9443</code>。根据界面提示，使用 <strong>支持 TOTP 的认证软件</strong> 扫描二维码，然后输入动态口令登录：</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://waf-ce.chaitin.cn/images/gif/login.gif"/></div></div>
+
+
+<h3 id="配置防护站点"><a href="#配置防护站点" class="headerlink" title="配置防护站点"></a>配置防护站点</h3><p>雷池以反向代理方式接入，优先于网站服务器接收流量，对流量中的攻击行为进行检测和清洗，将清洗过后的流量转发给网站服务器。</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://waf-ce.chaitin.cn/images/gif/config_site.gif"/></div></div>
+
+<p><font color=grey>💡 TIPS: 添加后，执行 <code>curl -H &quot;Host: &lt;域名&gt;&quot; http://&lt;WAF IP&gt;:&lt;端口&gt;</code> 应能获取到业务网站的响应。</font></p>
+<h3 id="测试效果"><a href="#测试效果" class="headerlink" title="测试效果"></a>测试效果</h3><p>使用以下方式尝试模拟黑客攻击，看看雷池的防护效果如何</p>
+<ul>
+<li>浏览器访问 <code>http://&lt;IP或域名&gt;:&lt;端口&gt;/?id=1%20AND%201=1</code></li>
+<li>浏览器访问 <code>http://&lt;IP或域名&gt;:&lt;端口&gt;/?a=&lt;script&gt;alert(1)&lt;/script&gt;</code></li>
+</ul>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://waf-ce.chaitin.cn/images/gif/detect_log.gif"/></div></div>
+
+<blockquote>
+<p>如果你需要进行深度测试，请参考 <a href="https://waf-ce.chaitin.cn/posts/guide_test">测试防护效果</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>安全网关</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>修正ubuntu的时区和时间</title>
     <url>/fed1903aae45/</url>
     <content><![CDATA[<p>查看当前系统时间</p>

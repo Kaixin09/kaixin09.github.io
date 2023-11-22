@@ -1,10 +1,11 @@
 https://blog.kaixin09.cn/3ab5f2264bd0/
+https://blog.kaixin09.cn/36d1b72d6cde/
+https://blog.kaixin09.cn/11235da5e10d/
 https://blog.kaixin09.cn/wiki/index.html
 https://blog.kaixin09.cn/notes/index.html
 https://blog.kaixin09.cn/friends/index.html
 https://blog.kaixin09.cn/about/index.html
 https://blog.kaixin09.cn/more/index.html
-https://blog.kaixin09.cn/11235da5e10d/
 https://blog.kaixin09.cn/0ee259ad053c/
 https://blog.kaixin09.cn/fed1903aae45/
 https://blog.kaixin09.cn/categories/index.html
@@ -15,4 +16,6 @@ https://blog.kaixin09.cn/tags/docker/
 https://blog.kaixin09.cn/tags/linux/
 https://blog.kaixin09.cn/tags/Code-Server/
 https://blog.kaixin09.cn/tags/https/
+https://blog.kaixin09.cn/tags/%E5%AE%89%E5%85%A8%E7%BD%91%E5%85%B3/
+https://blog.kaixin09.cn/tags/nginx/
 https://blog.kaixin09.cn/tags/Portainer-CE/
