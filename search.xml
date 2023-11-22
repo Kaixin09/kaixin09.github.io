@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>docker 一键安装命令</title>
-    <url>/docker%20%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4-0ee259ad053c/</url>
+    <url>/0ee259ad053c/</url>
     <content><![CDATA[<p>docker的一键安装指令（脚本目前好像只能适用于Ubuntu和Debian，centos也可以）</p>
 <p>1.官方给的命令（推荐）</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure>
@@ -16,7 +16,7 @@
   </entry>
   <entry>
     <title>安装Code-server使用并配置https</title>
-    <url>/%E5%AE%89%E8%A3%85Code-server%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AEhttps-11235da5e10d/</url>
+    <url>/11235da5e10d/</url>
     <content><![CDATA[<div class="tag-plugin note" color="cyan"><div class="title">在自己的局域网服务器上安装了code-server，但是markdown预览无法正常显示。</div><div class="body"><p>查了一下，需要在https加密模式下才能在浏览器中正常使用功能。 自己的服务器是用WireGuard在虚拟局域网内连接，没有公网ip和域名， 最后用的是本地签名证书。</p></div></div>
 
 <h3 id="I-安装-启动"><a href="#I-安装-启动" class="headerlink" title="I 安装&amp;启动"></a>I 安装&amp;启动</h3><p>GitHub地址：</p>
@@ -117,7 +117,7 @@
   </entry>
   <entry>
     <title>修正ubuntu的时区和时间</title>
-    <url>/%E8%B0%83%E6%95%B4LXC%E5%AE%B9%E5%99%A8%E6%97%B6%E9%97%B4-fed1903aae45/</url>
+    <url>/fed1903aae45/</url>
     <content><![CDATA[<p>查看当前系统时间</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">date</span></span><br></pre></td></tr></table></figure>
 
@@ -132,6 +132,30 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo timedatectl set-ntp off</span><br><span class="line">sudo timedatectl set-ntp on</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>部署Docker管理工具 Portainer-CE 社区</title>
+    <url>/3ab5f2264bd0/</url>
+    <content><![CDATA[<p>Portainer是一款开源的容器管理平台，它提供了一个直观易用的Web界面，帮助用户管理Docker容器集群、镜像、卷等资源。Portainer 支持多种 Docker 环境，包括本地Docker、Swarm 模式、Kubernetes 等，并支持多租户、RBAC权限管理等功能。</p>
+<span id="more"></span>
+<p>使用 Portainer，可以方便地创建、启动、停止、删除容器，管理容器的网络、卷、环境变量等设置，查看容器日志、统计信息等。此外，Portainer 还提供了一些实用的功能，如容器模板、自定义仪表盘、事件监控、Web 终端等。</p>
+<p>GitHub地址：</p>
+<div class="tag-plugin ghcard"><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/eysp/portainer-ce"><img src="https://github-readme-stats.xaoxuu.com/api/pin/?username=eysp&repo=portainer-ce&theme=dark&show_owner=true"/></a></div>
+
+<p>Docker Hub 地址：<br><a href="https://hub.docker.com/r/6053537/portainer-ce">https://hub.docker.com/r/6053537/portainer-ce</a></p>
+<p>一键安装代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --restart=always --name=<span class="string">&quot;portainer&quot;</span> -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock 6053537/portainer-ce</span><br></pre></td></tr></table></figure>
+
+
+<p>访问hub.docker.com网络慢,可以尝试下面的方式</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull hub-mirror.c.163.com/6053537/portainer-ce</span><br><span class="line">docker run -d --restart=always --name=<span class="string">&quot;portainer&quot;</span> -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data 6053537/portainer-ce</span><br></pre></td></tr></table></figure>
+
+<p>如果你要启用ssl访问，远程主机建议启用，端口443和证书路径&#x2F;certs请自行更改</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 443:9000 --name portainer --restart always -v</span><br><span class="line">      ~/local-certs:/certs -v portainer_data:/data 6053537/portainer-ce -v /var/run/docker.sock:/var/run/docker.sock --ssl</span><br><span class="line">      --sslcert /certs/portainer.crt --sslkey /certs/portainer.key</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>Portainer-CE</tag>
       </tags>
   </entry>
 </search>
