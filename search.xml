@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Docker环境下部署MySQL + Redis + PhpMyAdmin</title>
+    <url>/d97d6cf71fd7/</url>
+    <content><![CDATA[<p> Compose 项目是 Docker 官方的开源项目，负责实现对 Docker 容器集群的快速编排。使用前面介绍的Dockerfile我们很容易定义一个单独的应用容器。然而在日常开发工作中，经常会碰到需要多个容器相互配合来完成某项任务的情况。例如要实现一个 Web 项目，除了 Web 服务容器本身，往往还需要再加上后端的数据库服务容器；再比如在分布式应用一般包含若干个服务，每个服务一般都会部署多个实例。如果每个服务都要手动启停，那么效率之低、维护量之大可想而知。这时候就需要一个工具能够管理一组相关联的的应用容器，这就是Docker Compose。</p>
+<span id="more"></span>
+
+<p>本次的版本是：<br>mysql:5.7<br>redis:7.0<br>phpmyadmin:latest</p>
+<p>最好还是先Pull镜像</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull redis:7.0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull phpmyadmin/phpmyadmin:latest</span><br></pre></td></tr></table></figure>
+
+<p>vim docker-compose.yaml</p>
+<p>复制yaml格式的配置文件修改</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.8&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mysql:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:5.7</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mysql</span></span><br><span class="line">    <span class="attr">command:</span> </span><br><span class="line">      <span class="string">--lower_case_table_names=1</span></span><br><span class="line">      <span class="string">--default-authentication-plugin=mysql_native_password</span> <span class="comment">#这行代码解决无法访问的问题</span></span><br><span class="line">    <span class="comment"># ALTER USER&#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;123456&#x27;; </span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">password</span> <span class="comment"># 修改这里的密码</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">dbname</span>        <span class="comment"># 如果需要预创建数据库，指定数据库名</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">dbuser</span>            <span class="comment"># 可选，新建一个用户</span></span><br><span class="line">      <span class="attr">MYSQL_PASSWORD:</span> <span class="string">dbpasswd</span>      <span class="comment"># 用户密码</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3306:3306&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mysql_data:/var/lib/mysql</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">redis:7.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;6379:6379&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LANG=en_US.UTF-8</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis_data:/data</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">phpmyadmin:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">phpmyadmin/phpmyadmin:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">phpmyadmin</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">PMA_HOST:</span> <span class="string">mysql</span></span><br><span class="line">      <span class="attr">PMA_PORT:</span> <span class="number">3306</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">password</span> <span class="comment"># 和MySQL root用户密码保持一致</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mysql</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8888:80&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">mysql_data:</span></span><br><span class="line">  <span class="attr">redis_data:</span></span><br></pre></td></tr></table></figure>
+
+<p>使用Portainer-CE，直接部署就行</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311222218400.png"/></div></div>
+
+<p>在bash 中，在docker-compose.yaml 目录中 执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker 一键安装命令</title>
     <url>/0ee259ad053c/</url>
     <content><![CDATA[<p>docker的一键安装指令（脚本目前好像只能适用于Ubuntu和Debian，centos也可以）</p>
@@ -10,8 +42,8 @@
 <p>2.DaoCloud的（国内DaoCloud的快一些）</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>Linux</tag>
         <tag>docker</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
