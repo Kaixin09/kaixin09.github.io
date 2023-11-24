@@ -1,3 +1,4 @@
+https://blog.kaixin09.cn/a53d48db32fd/
 https://blog.kaixin09.cn/5640feae4a65/
 https://blog.kaixin09.cn/wiki/index.html
 https://blog.kaixin09.cn/friends/index.html
@@ -16,6 +17,7 @@ https://blog.kaixin09.cn/tags/index.html
 https://blog.kaixin09.cn/
 https://blog.kaixin09.cn/tags/docker/
 https://blog.kaixin09.cn/tags/mysql/
+https://blog.kaixin09.cn/tags/Hexo/
 https://blog.kaixin09.cn/tags/Linux/
 https://blog.kaixin09.cn/tags/OpenAi/
 https://blog.kaixin09.cn/tags/Vercel/
