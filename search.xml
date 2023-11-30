@@ -55,6 +55,96 @@
       </tags>
   </entry>
   <entry>
+    <title>PVE 创建LXC Ubuntu Docker</title>
+    <url>/11b17006059f/</url>
+    <content><![CDATA[<p>为什么选择lxc安装docker？<br>系统占用小，硬件利用率最高<br>启动速度快，体验完整<br>方便测试各种功能</p>
+<span id="more"></span>
+
+<h2 id="更换PVE源"><a href="#更换PVE源" class="headerlink" title="更换PVE源"></a>更换PVE源</h2><p>GitHub地址：（感谢大佬！）</p>
+<div class="tag-plugin ghcard"><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com//roacn/pve"><img src="https://github-readme-stats.xaoxuu.com/api/pin/?username=&repo=roacn&theme=dark&show_owner=true"/></a></div>
+
+<p>建议用ssh连接PVE后直接运行下面的脚本，涉及PVE服务重启，所以还是不要在web的控制台运行。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash -c  <span class="string">&quot;<span class="subst">$(curl -fsSL https://mirror.ghproxy.com/https://raw.githubusercontent.com/roacn/pve/main/pve.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>执行完成后，重启一下PVE服务器！</p>
+<h2 id="下载CT模板-Ubuntu"><a href="#下载CT模板-Ubuntu" class="headerlink" title="下载CT模板 Ubuntu"></a>下载CT模板 Ubuntu</h2><p>选择 local 存储 – CT模板 – 模板</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302210569.png"/></div></div>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302211026.png"/></div></div>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302211947.png"/></div></div>
+
+<p>选择对应的模板，下载<br>Ubuntu系统对新手相对来说比较友好，输入命令的时候，如果没有相关的软件，会提醒安装软件的命令</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302212245.png"/></div></div>
+
+<p>如果下载一直没有出现进度，就重启PVE服务器</p>
+<h2 id="创建LXC容器"><a href="#创建LXC容器" class="headerlink" title="创建LXC容器"></a>创建LXC容器</h2><p>点击右上角的 创建CT</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302216758.png"/></div></div>
+
+<p> 选择无特权容器</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302222105.png"/></div></div>
+
+<p>选择刚刚下载好的模板</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302225935.png"/></div></div>
+
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302230489.png"/></div></div>
+
+<p>磁盘– 8G （后面要安装更多的东西的时候可以再加）</p>
+<p>cpu– 随意</p>
+<p>内存– 1024M</p>
+<p>网络– 最好使用固定的ip</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302233342.png"/></div></div>
+
+<p>DNS</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302236224.png"/></div></div>
+
+<p>完成后不要立即启动 ！！！<br>完成后不要立即启动 ！！！<br>完成后不要立即启动 ！！！</p>
+<h2 id="设置LXC"><a href="#设置LXC" class="headerlink" title="设置LXC"></a>设置LXC</h2><p>选择刚刚创建好的容器–选项–功能</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302239747.png"/></div></div>
+
+
+<p>嵌套—-docker必须打开<br>nfs—-方便我们链接存储<br>smb—-同理<br>fuse—-有一些软件需要打开这个选项，保证运行</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302240246.png"/></div></div>
+
+<h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><p>PVE服务器里的配置文件<br>&#x2F;etc&#x2F;pve&#x2F;lxc&#x2F;刚刚创建的LXC容器的ID.conf</p>
+<p>我这里是233<br>就去找&#x2F;etc&#x2F;pve&#x2F;lxc&#x2F;233.conf<br>使用web的shell进入终端</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302244895.png"/></div></div>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/pve/lxc/233.conf</span><br></pre></td></tr></table></figure>
+<p>编辑，再文档最后插入下面的代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lxc.apparmor.profile: unconfined</span><br><span class="line">lxc.cgroup.devices.allow: a</span><br><span class="line">lxc.cap.drop:</span><br><span class="line"><span class="comment">#以上三行是必备的，以下两行是用来开启容器tun转发的，不是必须的</span></span><br><span class="line"></span><br><span class="line">lxc.cgroup2.devices.allow: c 10:200 rwm</span><br><span class="line">lxc.mount.entry: /dev/net/tun dev/net/tun none <span class="built_in">bind</span>,create=file</span><br></pre></td></tr></table></figure>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302248329.png"/></div></div>
+
+<p>退出保存</p>
+<p>启动 容器</p>
+<p>进入系统,安装curl</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install curl -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ubuntu换源"><a href="#Ubuntu换源" class="headerlink" title="Ubuntu换源"></a>Ubuntu换源</h2><p>GitHub地址：（感谢大佬！）</p>
+<div class="tag-plugin ghcard"><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/SuperManito/LinuxMirrors"><img src="https://github-readme-stats.xaoxuu.com/api/pin/?username=SuperManito&repo=LinuxMirrors&theme=dark&show_owner=true"/></a></div>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -sSL https://linuxmirrors.cn/main.sh)</span><br></pre></td></tr></table></figure>
+
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302256814.png"/></div></div>
+
+<h2 id="安装Dockers"><a href="#安装Dockers" class="headerlink" title="安装Dockers"></a>安装Dockers</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure>
+
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302258399.png"/></div></div>
+
+<p>安装完成</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302258427.png"/></div></div>
+
+<p>查看docker版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker -v</span><br></pre></td></tr></table></figure>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302259753.png"/></div></div>
+
+<p>设置docker服务自启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302300455.png"/></div></div>]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>ubuntu</tag>
+        <tag>pve</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker 一键安装命令</title>
     <url>/0ee259ad053c/</url>
     <content><![CDATA[<p>docker的一键安装指令（脚本目前好像只能适用于Ubuntu和Debian，centos也可以）</p>

@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.kaixin09.cn/11b17006059f/</loc>
+    
+    <lastmod>2023-11-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.kaixin09.cn/a53d48db32fd/</loc>
     
     <lastmod>2023-11-24</lastmod>
@@ -148,7 +157,7 @@
 
   <url>
     <loc>https://blog.kaixin09.cn/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -156,84 +165,98 @@
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/docker/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/mysql/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/Hexo/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kaixin09.cn/tags/ubuntu/</loc>
+    <lastmod>2023-11-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kaixin09.cn/tags/pve/</loc>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/Linux/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/OpenAi/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/Vercel/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/linux/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/Code-Server/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/https/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/%E5%AE%89%E5%85%A8%E7%BD%91%E5%85%B3/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/nginx/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kaixin09.cn/tags/Portainer-CE/</loc>
-    <lastmod>2023-11-24</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
