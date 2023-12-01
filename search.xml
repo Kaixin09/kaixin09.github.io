@@ -137,7 +137,16 @@
 
 <p>设置docker服务自启</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
-<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302300455.png"/></div></div>]]></content>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311302300455.png"/></div></div>
+
+
+<p>开启ssh远程登陆</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<p>去掉 # ，并将后面的 修改为yes</p>
+<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202312011931991.png"/></div></div>
+
+<p>重启SSH服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>docker</tag>
         <tag>ubuntu</tag>
@@ -257,6 +266,9 @@
 <div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/20231120113556.png"/></div></div>
 
 <p>password 字段的密码是随机生成的，你可以自己修改</p>
+<p>停止Code-Server 服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl stop code-server@root</span><br></pre></td></tr></table></figure>
+
 <p>改动配置文件（vim）：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.config/code-server/config.yaml </span><br></pre></td></tr></table></figure>
 <p>修改 bind-addr 字段的IP为 本地局域网ip</p>
@@ -389,7 +401,7 @@
       </tags>
   </entry>
   <entry>
-    <title>部署Docker管理工具 Portainer-CE 社区</title>
+    <title>部署Docker管理工具 Portainer-CE 社区版</title>
     <url>/3ab5f2264bd0/</url>
     <content><![CDATA[<p>Portainer是一款开源的容器管理平台，它提供了一个直观易用的Web界面，帮助用户管理Docker容器集群、镜像、卷等资源。Portainer 支持多种 Docker 环境，包括本地Docker、Swarm 模式、Kubernetes 等，并支持多租户、RBAC权限管理等功能。</p>
 <span id="more"></span>
