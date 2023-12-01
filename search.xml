@@ -61,7 +61,7 @@
 <span id="more"></span>
 
 <h2 id="更换PVE源"><a href="#更换PVE源" class="headerlink" title="更换PVE源"></a>更换PVE源</h2><p>GitHub地址：（感谢大佬！）</p>
-<div class="tag-plugin ghcard"><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com//roacn/pve"><img src="https://github-readme-stats.xaoxuu.com/api/pin/?username=&repo=roacn&theme=dark&show_owner=true"/></a></div>
+<div class="tag-plugin ghcard"><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/roacn/pve"><img src="https://github-readme-stats.xaoxuu.com/api/pin/?username=roacn&repo=pve&theme=dark&show_owner=true"/></a></div>
 
 <p>建议用ssh连接PVE后直接运行下面的脚本，涉及PVE服务重启，所以还是不要在web的控制台运行。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash -c  <span class="string">&quot;<span class="subst">$(curl -fsSL https://mirror.ghproxy.com/https://raw.githubusercontent.com/roacn/pve/main/pve.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
