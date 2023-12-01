@@ -166,6 +166,27 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Ubuntu安装Node.js</title>
+    <url>/5dfe0d1ffd89/</url>
+    <content><![CDATA[<p>Ubuntu安装Node.js</p>
+<span id="more"></span>
+
+<h2 id="通过PPA安装"><a href="#通过PPA安装" class="headerlink" title="通过PPA安装"></a>通过PPA安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo bash nodesource_setup.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install nodejs</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<p>通过这种方式安装，由于nodejs包中已经包含了node和npm，所以不需要单独安装npm了。</p>
+]]></content>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用 Vercel 反代 Openai</title>
     <url>/e8ae4aaeef2f/</url>
     <content><![CDATA[<p><a href="https://your/">https://YOUR</a> DOMAIN（改成你的域名）&#x2F;v1&#x2F;chat&#x2F;completions</p>
