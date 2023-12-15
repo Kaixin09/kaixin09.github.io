@@ -55,6 +55,55 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo 通过 git + 阿里云服务器搭建的静态博客</title>
+    <url>/40c90f45f5c5/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">adduser git</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 740 /etc/sudoers</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<p>git     ALL&#x3D;(ALL)     ALL</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 400 /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo passwd git</span><br></pre></td></tr></table></figure>
+
+
+<p>输入密码，输入的时候是看不到任何显示的，输完回车即可。</p>
+<p>切换至 git 用户，创建 ~&#x2F;.ssh 文件夹和 ~&#x2F;.ssh&#x2F;authorized_keys 文件</p>
+<p>su git<br>mkdir ~&#x2F;.ssh<br>vim ~&#x2F;.ssh&#x2F;authorized_keys</p>
+<p>同样i进入编辑模式，把之前本地准备的id_rsa.pub文件中的公钥复制进去，按esc后，输入:wq保存。(注意!!! 最后一行要加回车)</p>
+<p>更改权限：</p>
+<p>chmod 600 &#x2F;home&#x2F;git&#x2F;.ssh&#x2F;authorized_keys<br>chmod 700 &#x2F;home&#x2F;git&#x2F;.ssh</p>
+<p>本地测试：</p>
+<p>ssh -v git@服务器ip地址或域名<br>1<br>不用输密码就成了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /home/git/repo</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>切换到 root 用户：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo su root</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入 <code>/home/git/repo</code> 目录并创建一个空白的 Git 仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /home/git/repo</span><br><span class="line">git init --bare hexo.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 <code>post-receive</code> 钩子文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /home/git/repo/hexo.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在编辑模式下，添加以下代码，并保存退出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">git --work-tree=/www/wwwroot/nginx网站目录 --git-dir=/home/git/repo/hexo.git checkout -f</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改钩子文件的所有者和权限：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chown -R git:git /home/git/repo/hexo.git/hooks/post-receive</span><br><span class="line">chmod +x /home/git/repo/hexo.git/hooks/post-receive</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>cd &#x2F;home&#x2F;git<br>chown -R git:git repo&#x2F;<br>chown -R git:git &#x2F;www&#x2F;wwwroot&#x2F;nginx网站目录</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PVE 创建LXC Ubuntu Docker</title>
     <url>/11b17006059f/</url>
     <content><![CDATA[<p>为什么选择lxc安装docker？<br>系统占用小，硬件利用率最高<br>启动速度快，体验完整<br>方便测试各种功能</p>
@@ -166,13 +215,6 @@
         <tag>docker</tag>
         <tag>Linux</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>不值得生活的人，就是那些没有发现生活真谛的人。</title>
-    <url>/5640feae4a65/</url>
-    <content><![CDATA[<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311232146453.jpg"/></div></div>
-<div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311222232162.png"/></div></div>
-]]></content>
   </entry>
   <entry>
     <title>Ubuntu安装Node.js</title>
@@ -377,8 +419,8 @@
 ]]></content>
       <tags>
         <tag>docker</tag>
-        <tag>安全网关</tag>
         <tag>nginx</tag>
+        <tag>安全网关</tag>
       </tags>
   </entry>
   <entry>

@@ -1,9 +1,9 @@
+https://blog.kaixin09.cn/40c90f45f5c5/
 https://blog.kaixin09.cn/11b17006059f/
 https://blog.kaixin09.cn/11235da5e10d/
 https://blog.kaixin09.cn/3ab5f2264bd0/
 https://blog.kaixin09.cn/5dfe0d1ffd89/
 https://blog.kaixin09.cn/a53d48db32fd/
-https://blog.kaixin09.cn/5640feae4a65/
 https://blog.kaixin09.cn/wiki/index.html
 https://blog.kaixin09.cn/friends/index.html
 https://blog.kaixin09.cn/d97d6cf71fd7/
@@ -20,6 +20,8 @@ https://blog.kaixin09.cn/
 https://blog.kaixin09.cn/tags/docker/
 https://blog.kaixin09.cn/tags/mysql/
 https://blog.kaixin09.cn/tags/Hexo/
+https://blog.kaixin09.cn/tags/hexo/
+https://blog.kaixin09.cn/tags/nginx/
 https://blog.kaixin09.cn/tags/ubuntu/
 https://blog.kaixin09.cn/tags/pve/
 https://blog.kaixin09.cn/tags/Linux/
@@ -30,5 +32,4 @@ https://blog.kaixin09.cn/tags/linux/
 https://blog.kaixin09.cn/tags/Code-Server/
 https://blog.kaixin09.cn/tags/https/
 https://blog.kaixin09.cn/tags/%E5%AE%89%E5%85%A8%E7%BD%91%E5%85%B3/
-https://blog.kaixin09.cn/tags/nginx/
 https://blog.kaixin09.cn/tags/Portainer-CE/
