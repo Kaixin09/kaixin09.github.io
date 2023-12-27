@@ -217,6 +217,36 @@
       </tags>
   </entry>
   <entry>
+    <title>linux挂载webdav为本地路径</title>
+    <url>/a53835b62031/</url>
+    <content><![CDATA[<p>1.安装davfs2<br>Ubuntu&#x2F;Debian下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install davfs2</span><br></pre></td></tr></table></figure>
+
+
+<p>2.创建目录并挂载</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /mnt/alist</span><br><span class="line">mount -t davfs http://192.168.1.32:5244/dav /mnt/alist</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
+<p>查看系统中分区和硬盘的使用状况 以GB为单位显示</p>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>webdav</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>qm importdisk 命令将虚拟硬盘文件导入到 PVE 中的存储池中</title>
+    <url>/b1c9ba2e80c0/</url>
+    <content><![CDATA[<p>使用 qm importdisk 命令将虚拟硬盘文件导入到 PVE 中的存储池中。例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">qm importdisk &lt;虚拟机ID&gt; &lt;硬盘文件路径&gt; &lt;存储池名称&gt;</span><br></pre></td></tr></table></figure>
+<p>替换 &lt;虚拟机ID&gt; 为目标虚拟机的 ID，&lt;硬盘文件路径&gt; 为虚拟硬盘文件的路径，&lt;存储池名称&gt; 为存储池的名称。</p>
+]]></content>
+      <tags>
+        <tag>pve</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu安装Node.js</title>
     <url>/5dfe0d1ffd89/</url>
     <content><![CDATA[<p>Ubuntu安装Node.js</p>
