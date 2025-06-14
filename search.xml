@@ -206,11 +206,19 @@
     <title>docker 一键安装命令</title>
     <url>/0ee259ad053c/</url>
     <content><![CDATA[<p>docker的一键安装指令（脚本目前好像只能适用于Ubuntu和Debian，centos也可以）</p>
-<p>1.官方给的命令（推荐）</p>
+<p>推荐</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -sSL https://linuxmirrors.cn/docker.sh)</span><br></pre></td></tr></table></figure>
+
+<p>1.官方给的命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure>
 
 <p>2.DaoCloud的（国内DaoCloud的快一些）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
+
+<p>自启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <tags>
         <tag>docker</tag>
         <tag>Linux</tag>
