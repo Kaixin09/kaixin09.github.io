@@ -1,3 +1,5 @@
+https://blog.kaixin09.cn/c666c0f2e19a/
+https://blog.kaixin09.cn/40337f4f2546/
 https://blog.kaixin09.cn/0ee259ad053c/
 https://blog.kaixin09.cn/b1c9ba2e80c0/
 https://blog.kaixin09.cn/a53835b62031/
@@ -12,7 +14,6 @@ https://blog.kaixin09.cn/friends/index.html
 https://blog.kaixin09.cn/d97d6cf71fd7/
 https://blog.kaixin09.cn/e8ae4aaeef2f/
 https://blog.kaixin09.cn/about/index.html
-https://blog.kaixin09.cn/36d1b72d6cde/
 https://blog.kaixin09.cn/notes/index.html
 https://blog.kaixin09.cn/more/index.html
 https://blog.kaixin09.cn/fed1903aae45/
@@ -34,5 +35,8 @@ https://blog.kaixin09.cn/tags/OpenAi/
 https://blog.kaixin09.cn/tags/Vercel/
 https://blog.kaixin09.cn/tags/Code-Server/
 https://blog.kaixin09.cn/tags/https/
-https://blog.kaixin09.cn/tags/%E5%AE%89%E5%85%A8%E7%BD%91%E5%85%B3/
 https://blog.kaixin09.cn/tags/Portainer-CE/
+https://blog.kaixin09.cn/tags/Blender/
+https://blog.kaixin09.cn/tags/%E5%BB%BA%E6%A8%A1/
+https://blog.kaixin09.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+https://blog.kaixin09.cn/categories/Blender/

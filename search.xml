@@ -415,53 +415,6 @@
       </tags>
   </entry>
   <entry>
-    <title>安装SafeLine Web 安全网关</title>
-    <url>/36d1b72d6cde/</url>
-    <content><![CDATA[<p>这是一个自带安全 buf 的 Nginx，它基于业界领先的语义分析检测技术开发，作为反向代理接入，保护你的网站不受黑客攻击。</p>
-<span id="more"></span>
-
-<p>GitHub地址：</p>
-<div class="tag-plugin ghcard"><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/chaitin/SafeLine"><img src="https://github-readme-stats.xaoxuu.com/api/pin/?username=chaitin&repo=SafeLine&theme=dark&show_owner=true"/></a></div>
-
-<p>SafeLine 官网提供了多种部署方案，最简单的是一键安装方案，执行以下命令。</p>
-<h2 id="🚀-安装"><a href="#🚀-安装" class="headerlink" title="🚀 安装"></a>🚀 安装</h2><h3 id="配置需求"><a href="#配置需求" class="headerlink" title="配置需求"></a>配置需求</h3><ul>
-<li>操作系统：Linux</li>
-<li>指令架构：x86_64</li>
-<li>软件依赖：Docker 20.10.6 版本以上</li>
-<li>软件依赖：Docker Compose 2.0.0 版本以上</li>
-<li>最小化环境：1 核 CPU &#x2F; 1 GB 内存 &#x2F; 10 GB 磁盘</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl -fsSLk https://waf-ce.chaitin.cn/release/latest/setup.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>其他安装方式：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/chaitin/SafeLine.git</span><br><span class="line"><span class="built_in">cd</span> SafeLine</span><br><span class="line">bash ./release/latest/setup.sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p>浏览器打开后台管理页面 <code>https://&lt;waf-ip&gt;:9443</code>。根据界面提示，使用 <strong>支持 TOTP 的认证软件</strong> 扫描二维码，然后输入动态口令登录：</p>
-<div class="tag-plugin image"><div class="image-bg"><img src="https://waf-ce.chaitin.cn/images/gif/login.gif"/></div></div>
-
-
-<h3 id="配置防护站点"><a href="#配置防护站点" class="headerlink" title="配置防护站点"></a>配置防护站点</h3><p>雷池以反向代理方式接入，优先于网站服务器接收流量，对流量中的攻击行为进行检测和清洗，将清洗过后的流量转发给网站服务器。</p>
-<div class="tag-plugin image"><div class="image-bg"><img src="https://waf-ce.chaitin.cn/images/gif/config_site.gif"/></div></div>
-
-<p><font color=grey>💡 TIPS: 添加后，执行 <code>curl -H &quot;Host: &lt;域名&gt;&quot; http://&lt;WAF IP&gt;:&lt;端口&gt;</code> 应能获取到业务网站的响应。</font></p>
-<h3 id="测试效果"><a href="#测试效果" class="headerlink" title="测试效果"></a>测试效果</h3><p>使用以下方式尝试模拟黑客攻击，看看雷池的防护效果如何</p>
-<ul>
-<li>浏览器访问 <code>http://&lt;IP或域名&gt;:&lt;端口&gt;/?id=1%20AND%201=1</code></li>
-<li>浏览器访问 <code>http://&lt;IP或域名&gt;:&lt;端口&gt;/?a=&lt;script&gt;alert(1)&lt;/script&gt;</code></li>
-</ul>
-<div class="tag-plugin image"><div class="image-bg"><img src="https://waf-ce.chaitin.cn/images/gif/detect_log.gif"/></div></div>
-
-<blockquote>
-<p>如果你需要进行深度测试，请参考 <a href="https://waf-ce.chaitin.cn/posts/guide_test">测试防护效果</a></p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>docker</tag>
-        <tag>nginx</tag>
-        <tag>安全网关</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>修正ubuntu的时区和时间</title>
     <url>/fed1903aae45/</url>
     <content><![CDATA[<p>查看当前系统时间</p>
@@ -502,6 +455,846 @@
       <tags>
         <tag>docker</tag>
         <tag>Portainer-CE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blender 建模篇 2.1：点线面的选择与控制</title>
+    <url>/40337f4f2546/</url>
+    <content><![CDATA[<blockquote>
+<p>课程：<a href="https://www.bilibili.com/video/BV14u41147YH/?p=6">【Kurt】Blender 零基础入门教程</a>（UP 主：KurTips）<br>章节：建模篇 2.1 · P6 · 时长约 13 分半<br>记录时间：2026-11-09</p>
+</blockquote>
+<p><strong>一句话总结</strong>：这节课只干两件事——把点、线、面<strong>选准</strong>，再把它们<strong>动对</strong>，最后补上”法线”这一课，因为面的正反会直接影响后面的材质、渲染，甚至游戏引擎里的显示。</p>
+<hr>
+<h2 id="一、先分清”模式”"><a href="#一、先分清”模式”" class="headerlink" title="一、先分清”模式”"></a>一、先分清”模式”</h2><p>Blender 里同一个物体有多个”工作层”，最常用的是两个：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>你在操作什么</th>
+<th>进入方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>物体模式 Object Mode</td>
+<td>把物体当成一个整体：移动、旋转、缩放、复制</td>
+<td>默认模式</td>
+</tr>
+<tr>
+<td>编辑模式 Edit Mode</td>
+<td>钻进物体内部，编辑它的点、线、面</td>
+<td>选中物体后按 <code>Tab</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>Tab</code>：在物体模式和编辑模式之间来回切换，最常用的一个键。</li>
+<li><code>Ctrl + Tab</code>：呼出”模式饼菜单”，一次性看到所有模式（雕刻、顶点绘制、权重绘制、UV 编辑……）。</li>
+<li>更顺手的方式：到 <strong>编辑 → 偏好设置 → 界面</strong>，勾选”<strong>拖动激活饼菜单</strong>“（Pie Menu on Drag）。之后<strong>按住 <code>Tab</code> 不松手并拖动鼠标</strong>，就能像游戏里切武器一样甩出模式轮盘，松开选中即可。</li>
+</ul>
+<blockquote>
+<p>小提示：视频里演示的”甩鼠标切模式”就是靠这个偏好设置，默认是关的，不勾选的话长按 <code>Tab</code> 不会有轮盘。</p>
+</blockquote>
+<hr>
+<h2 id="二、点、线、面：建模的三个层级"><a href="#二、点、线、面：建模的三个层级" class="headerlink" title="二、点、线、面：建模的三个层级"></a>二、点、线、面：建模的三个层级</h2><table>
+<thead>
+<tr>
+<th>元素</th>
+<th>英文</th>
+<th>它是什么</th>
+<th>选择模式快捷键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>顶点</td>
+<td>Vertex</td>
+<td>空间中的一个点，没有大小</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>边</td>
+<td>Edge</td>
+<td>两个顶点之间的连线</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td>面</td>
+<td>Face</td>
+<td>至少三条边围成的多边形（Blender 允许 n-gon）</td>
+<td><code>3</code></td>
+</tr>
+</tbody></table>
+<p>几个容易踩的点：</p>
+<ul>
+<li><code>1</code> &#x2F; <code>2</code> &#x2F; <code>3</code> 用的是<strong>主键盘区</strong>的数字，不是右侧小键盘。笔记本如果开了”模拟数字键盘”，按 <code>1</code> 会变成切换视图，需要去偏好设置里关掉或改键。</li>
+<li>按住 <code>Shift</code> 再点顶部那三个模式按钮，可以<strong>同时开启多种选择模式</strong>（比如点 + 边一起选）。</li>
+<li>切换选择模式时，已选内容会按拓扑关系”换算”保留：点全选了，切到边模式会选中由这些点组成的边。这点在建模时很好用。</li>
+</ul>
+<hr>
+<h2 id="三、选择：把该选的选出来"><a href="#三、选择：把该选的选出来" class="headerlink" title="三、选择：把该选的选出来"></a>三、选择：把该选的选出来</h2><h3 id="1-基础选择"><a href="#1-基础选择" class="headerlink" title="1. 基础选择"></a>1. 基础选择</h3><ul>
+<li>左键单击：选中；<code>Shift + 单击</code>：加选 &#x2F; 取消单个元素。</li>
+<li><code>A</code>：全选；<code>Alt + A</code>：取消全选；<code>Ctrl + I</code>：反选。</li>
+<li>点击空白处：取消当前选择。</li>
+<li>框选时按住 <code>Shift</code> 是加选、按住 <code>Ctrl</code> 是减选。</li>
+</ul>
+<h3 id="2-三种选择工具"><a href="#2-三种选择工具" class="headerlink" title="2. 三种选择工具"></a>2. 三种选择工具</h3><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>快捷键</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>框选 Box</td>
+<td><code>B</code></td>
+<td>拉一个矩形框，框内元素被选中</td>
+</tr>
+<tr>
+<td>刷选 Circle</td>
+<td><code>C</code></td>
+<td>变成圆形笔刷，按住左键涂抹选择；滚轮调笔刷大小；中键（部分版本 <code>Ctrl + 左键</code>）擦除；<code>Esc</code> &#x2F; 右键退出</td>
+</tr>
+<tr>
+<td>套索 Lasso</td>
+<td><code>Ctrl + 右键拖动</code></td>
+<td>手绘一个闭合区域，圈中的被选中</td>
+</tr>
+</tbody></table>
+<p>按 <code>W</code> 可以在几种选择工具之间循环切换。如果按 <code>W</code> 没反应，先确认鼠标没有停在左侧工具栏上、输入法是不是英文。</p>
+<h3 id="3-智能选择（本节重点）"><a href="#3-智能选择（本节重点）" class="headerlink" title="3. 智能选择（本节重点）"></a>3. 智能选择（本节重点）</h3><table>
+<thead>
+<tr>
+<th>想做的事</th>
+<th>操作</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>选一整圈</td>
+<td><code>Alt + 单击</code></td>
+<td>循环选择：点边选一圈边，点面选一圈面；点靠近纵向的边和横向的边，选出的方向不同</td>
+</tr>
+<tr>
+<td>选平行的环</td>
+<td><code>Ctrl + Alt + 单击</code>（部分版本是双击）</td>
+<td>环形选择：一次选中同一”纬度”上所有平行边，做花瓶、圆柱、管道类模型非常常用</td>
+</tr>
+<tr>
+<td>两点之间连一条路径</td>
+<td><code>Ctrl + 单击</code>（新版可能为 <code>Ctrl + 右键</code>，以左下角提示为准）</td>
+<td>最短路径选择，跨面连接两点</td>
+</tr>
+<tr>
+<td>选中相连的一整块</td>
+<td><code>L</code></td>
+<td><strong>鼠标要悬停在物体上</strong>再按，选中与它连通的所有点线面</td>
+</tr>
+<tr>
+<td>同上，但不想移动鼠标</td>
+<td><code>Ctrl + L</code></td>
+<td>选中当前已选元素所在的整块，鼠标在哪都行</td>
+</tr>
+<tr>
+<td>扩大 &#x2F; 缩小选区</td>
+<td><code>Ctrl + 小键盘 +</code> &#x2F; <code>Ctrl + 小键盘 -</code></td>
+<td>必须是小键盘的加号、减号</td>
+</tr>
+<tr>
+<td>随机选一部分</td>
+<td>选择菜单 → <strong>随机选择</strong></td>
+<td>可调比例，用来做自然感、破损感、随机错位</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>视频里的例子：<code>L</code> 选不中整个猴头，不是因为有三角面，而是因为<strong>眼睛和头部本来就不是连通的网格</strong>。角色建模时眼球常和眼眶分开做，方便后面单独做动画，所以 <code>L</code> 只会选中眼睛这一块。</p>
+</blockquote>
+<h3 id="4-透视选择：Alt-Z"><a href="#4-透视选择：Alt-Z" class="headerlink" title="4. 透视选择：Alt + Z"></a>4. 透视选择：<code>Alt + Z</code></h3><p>实体模式下的框选<strong>只能选到正对你的那一面</strong>，背面的点线面选不到。按 <code>Alt + Z</code> 打开透视模式（X-Ray），模型变半透明，框选就能穿透到背面。</p>
+<ul>
+<li>再按一次 <code>Alt + Z</code> 退出。</li>
+<li>这个键经常和 N 卡 &#x2F; AMD 驱动的录屏、游戏内浮窗快捷键冲突，按下去弹出显卡面板的话，去驱动设置里把那个热键改掉即可。</li>
+<li>也可以按 <code>Z</code> 调出着色方式菜单，在里面切换透视 &#x2F; 实体。</li>
+</ul>
+<hr>
+<h2 id="四、控制：选中之后怎么动"><a href="#四、控制：选中之后怎么动" class="headerlink" title="四、控制：选中之后怎么动"></a>四、控制：选中之后怎么动</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>快捷键</th>
+<th>技巧</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>移动</td>
+<td><code>G</code></td>
+<td>按下后只动鼠标，不要再点任何键；点左键确认，点右键 &#x2F; <code>Esc</code> 取消</td>
+</tr>
+<tr>
+<td>旋转</td>
+<td><code>R</code></td>
+<td>围绕选中元素的中点旋转</td>
+</tr>
+<tr>
+<td>缩放</td>
+<td><code>S</code></td>
+<td>围绕选中元素的中点缩放</td>
+</tr>
+<tr>
+<td>锁定单轴</td>
+<td><code>G</code> &#x2F; <code>R</code> &#x2F; <code>S</code> 后按 <code>X</code>、<code>Y</code>、<code>Z</code></td>
+<td>只在指定轴上动</td>
+</tr>
+<tr>
+<td>在平面内动</td>
+<td><code>Shift + X/Y/Z</code></td>
+<td>排除该轴，比如 <code>Shift + Z</code> 就是在 XY 平面上移动</td>
+</tr>
+<tr>
+<td>精确数值</td>
+<td>变换中直接输入数字再回车</td>
+<td>例如 <code>G</code> <code>X</code> <code>2</code> <code>Enter</code> &#x3D; 沿 X 轴精确移动 2 米</td>
+</tr>
+<tr>
+<td>吸附</td>
+<td>变换中按住 <code>Ctrl</code></td>
+<td>按固定步长吸附，适合对齐网格</td>
+</tr>
+<tr>
+<td>撤销</td>
+<td><code>Ctrl + Z</code></td>
+<td>建模时按得最多的键之一</td>
+</tr>
+</tbody></table>
+<p>**关于”点模式下不能缩放、旋转”**：单个顶点没有尺寸也没有方向，<code>S</code> 和 <code>R</code> 又是围绕”选中元素的中点”进行的，所以对一个孤立顶点做缩放或旋转，画面看起来毫无变化。这不是功能坏了——多选几个点，或者切到边 &#x2F; 面模式，再按 <code>S</code> &#x2F; <code>R</code> 就能看到效果。视频里说的”点模式无法缩放旋转”，指的就是这个现象。</p>
+<blockquote>
+<p>变换的轴心默认是”选中元素的中点”（Median Point），所以选的位置不同，缩放和旋转的结果也不同。这是新手最常见”怎么越转越歪”的原因，后面讲轴心点时还会展开。</p>
+</blockquote>
+<hr>
+<h2 id="五、删除：X-和-Ctrl-X-不是一回事"><a href="#五、删除：X-和-Ctrl-X-不是一回事" class="headerlink" title="五、删除：X 和 Ctrl + X 不是一回事"></a>五、删除：<code>X</code> 和 <code>Ctrl + X</code> 不是一回事</h2><p>按 <code>X</code> 会弹出一个删除菜单，选什么删什么：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>顶点 Vertices</td>
+<td>删点，连带与它相连的边和面一起消失</td>
+</tr>
+<tr>
+<td>边 Edges</td>
+<td>删边，面上出现破洞</td>
+</tr>
+<tr>
+<td>面 Faces</td>
+<td>删面，只留下边界线</td>
+</tr>
+<tr>
+<td>仅边和面 Only Edges &amp; Faces</td>
+<td>保留顶点，删掉边和面</td>
+</tr>
+<tr>
+<td>仅面 Only Faces</td>
+<td>只删面，边和点都保留</td>
+</tr>
+</tbody></table>
+<p>而 <code>Ctrl + X</code> 是”<strong>融并</strong>“（Dissolve）：删掉元素的同时把周围的网格缝合起来，不留洞。比如 <code>Ctrl + X</code> 融并一条边，两侧的面会合并成一个面。</p>
+<blockquote>
+<p>建模习惯：动手前先想清楚——我是要”挖掉一块”（<code>X</code>），还是要”把这条线抹平”（<code>Ctrl + X</code>）？视频里特意强调过，删来删去很容易把自己删蒙。</p>
+</blockquote>
+<hr>
+<h2 id="六、法线：面的正反，决定光的去向"><a href="#六、法线：面的正反，决定光的去向" class="headerlink" title="六、法线：面的正反，决定光的去向"></a>六、法线：面的正反，决定光的去向</h2><p><strong>法线</strong>是垂直于面（或顶点）的单位向量，它决定了光线从哪个方向照过来、面朝哪边”算正面”。做模型时如果法线反了，材质会发黑、渲染会漏光，导入游戏引擎后甚至整块面直接消失。</p>
+<h3 id="1-面朝向（Face-Orientation）"><a href="#1-面朝向（Face-Orientation）" class="headerlink" title="1. 面朝向（Face Orientation）"></a>1. 面朝向（Face Orientation）</h3><p>打开后可以直观看到面的正反：</p>
+<ul>
+<li><strong>蓝色 &#x3D; 正面</strong>，<strong>红色 &#x3D; 反面</strong>（视频录制时是 3.x 的配色）。</li>
+<li>新版 Blender 里正面可能显示为灰 &#x2F; 白，只把反面标红。如果看不到蓝色，去 <strong>偏好设置 → 主题 → 3D 视图 → 面朝向</strong>，把正面颜色的 Alpha 调高即可。</li>
+<li>显示开关的位置随版本变化：4.x 在右上角的”<strong>网格编辑模式</strong>“叠加层里，旧版在视图叠加层下拉菜单里。</li>
+</ul>
+<h3 id="2-三种法线显示"><a href="#2-三种法线显示" class="headerlink" title="2. 三种法线显示"></a>2. 三种法线显示</h3><p>在叠加层里可以分别打开：</p>
+<ul>
+<li><strong>顶点法线</strong>：每个顶点上垂直伸出的线。</li>
+<li><strong>面法线</strong>：每个面中心垂直伸出的线。</li>
+<li><strong>拆分法线</strong>（Split Normals）：在法线被”拆开”的地方显示分裂的线，用于检查硬边和自定义法线。</li>
+</ul>
+<h3 id="3-重算法线"><a href="#3-重算法线" class="headerlink" title="3. 重算法线"></a>3. 重算法线</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>重新计算外侧</td>
+<td><code>Shift + N</code></td>
+<td>最常用，把法线统一翻到外面</td>
+</tr>
+<tr>
+<td>重新计算内侧</td>
+<td><code>Ctrl + Shift + N</code></td>
+<td>翻转到里面，做内壁、房间内部时用</td>
+</tr>
+<tr>
+<td>打开法向面板</td>
+<td><code>Alt + N</code>（4.x）</td>
+<td>里面有翻转、重算、设置自定义法线等选项</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>从外部导入模型、做完镜像或对称、或者用布尔运算之后，第一件事就是开面朝向看一眼，有红色就 <code>Shift + N</code>。</p>
+</blockquote>
+<hr>
+<h2 id="七、快捷键速查"><a href="#七、快捷键速查" class="headerlink" title="七、快捷键速查"></a>七、快捷键速查</h2><p><strong>选择</strong></p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Tab</code></td>
+<td>物体模式 &#x2F; 编辑模式 切换</td>
+</tr>
+<tr>
+<td><code>Ctrl + Tab</code></td>
+<td>模式饼菜单</td>
+</tr>
+<tr>
+<td><code>1</code> &#x2F; <code>2</code> &#x2F; <code>3</code></td>
+<td>点 &#x2F; 边 &#x2F; 面 选择模式</td>
+</tr>
+<tr>
+<td><code>A</code> &#x2F; <code>Alt + A</code> &#x2F; <code>Ctrl + I</code></td>
+<td>全选 &#x2F; 取消全选 &#x2F; 反选</td>
+</tr>
+<tr>
+<td><code>B</code> &#x2F; <code>C</code> &#x2F; <code>Ctrl + 右键拖动</code></td>
+<td>框选 &#x2F; 刷选 &#x2F; 套索</td>
+</tr>
+<tr>
+<td><code>Alt + 单击</code></td>
+<td>循环选择（一圈）</td>
+</tr>
+<tr>
+<td><code>Ctrl + Alt + 单击</code></td>
+<td>环形选择（平行的一圈）</td>
+</tr>
+<tr>
+<td><code>Ctrl + 单击</code></td>
+<td>最短路径</td>
+</tr>
+<tr>
+<td><code>L</code> &#x2F; <code>Ctrl + L</code></td>
+<td>选择相连元素（悬停 &#x2F; 不悬停）</td>
+</tr>
+<tr>
+<td><code>Ctrl + 小键盘 +</code> &#x2F; <code>-</code></td>
+<td>扩大 &#x2F; 缩小选区</td>
+</tr>
+<tr>
+<td><code>Alt + Z</code></td>
+<td>透视模式（穿透框选）</td>
+</tr>
+</tbody></table>
+<p><strong>控制</strong></p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>G</code> &#x2F; <code>R</code> &#x2F; <code>S</code></td>
+<td>移动 &#x2F; 旋转 &#x2F; 缩放</td>
+</tr>
+<tr>
+<td><code>X</code> &#x2F; <code>Y</code> &#x2F; <code>Z</code></td>
+<td>锁定单轴</td>
+</tr>
+<tr>
+<td><code>Shift + X/Y/Z</code></td>
+<td>排除该轴（在另外两轴的平面内）</td>
+</tr>
+<tr>
+<td><code>Ctrl</code>（变换中按住）</td>
+<td>吸附</td>
+</tr>
+<tr>
+<td><code>X</code></td>
+<td>删除菜单</td>
+</tr>
+<tr>
+<td><code>Ctrl + X</code></td>
+<td>融并（Dissolve）</td>
+</tr>
+<tr>
+<td><code>Ctrl + Z</code></td>
+<td>撤销</td>
+</tr>
+<tr>
+<td><code>Shift + N</code> &#x2F; <code>Ctrl + Shift + N</code></td>
+<td>法线朝外 &#x2F; 朝内</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="八、踩坑清单"><a href="#八、踩坑清单" class="headerlink" title="八、踩坑清单"></a>八、踩坑清单</h2><ol>
+<li><strong>快捷键没反应</strong>：九成是输入法还在中文，切到英文；或者鼠标正停在左侧工具栏上。</li>
+<li><strong>按 <code>1</code> &#x2F; <code>2</code> &#x2F; <code>3</code> 变成切视图</strong>：笔记本开了”模拟数字键盘”，去偏好设置关掉，或改用鼠标点顶部的模式按钮。</li>
+<li><strong><code>Ctrl + 小键盘 +</code> 没反应</strong>：那个加减号必须是<strong>数字小键盘</strong>上的，主键盘区的不行。</li>
+<li><strong><code>Alt + Z</code> 弹出显卡驱动面板</strong>：N 卡 &#x2F; A 卡的热键冲突，去驱动里改掉，或改用 <code>Z</code> 菜单。</li>
+<li><strong>打开面朝向看不到蓝色</strong>：新版本正面默认灰 &#x2F; 白，去主题里把 Alpha 调高；或者你的模型是封闭立体，只有内部才是红的。</li>
+<li><strong><code>L</code> 选不中想要的部分</strong>：鼠标必须悬停在物体上；如果两部分的网格本来就没连通，<code>L</code> 只会选中其中一块。</li>
+<li><strong>版本差异</strong>：视频录于 2023 年（3.x），现在 4.x &#x2F; 5.x 的菜单位置和部分快捷键都变了。拿不准时看<strong>左下角状态栏的提示</strong>，它永远比教程准。</li>
+</ol>
+<hr>
+<h2 id="九、跟着视频练一遍"><a href="#九、跟着视频练一遍" class="headerlink" title="九、跟着视频练一遍"></a>九、跟着视频练一遍</h2><ol>
+<li>用默认的猴头 Suzanne：<code>Alt + 单击</code> 选一圈边，<code>Ctrl + Alt + 单击</code> 选平行边环，<code>L</code> 选整块，<code>Ctrl + 单击</code> 连两点，感受这四种选择的差别。</li>
+<li>新建一个圆柱，<code>Ctrl + Alt + 单击</code> 选中中间一圈边，<code>S</code> 缩放，再隔几圈缩放一次，做出花瓶的轮廓。</li>
+<li>不开 <code>Alt + Z</code> 框选一次背面，再开 <code>Alt + Z</code> 框选一次，对比结果。</li>
+<li>按 <code>Shift + N</code> 和 <code>Ctrl + Shift + N</code> 来回翻转，打开面朝向观察红蓝变化。</li>
+<li>用”随机选择”选一部分面，<code>G</code> 轻轻推一下，体会随机带来的自然感。</li>
+</ol>
+<hr>
+<h2 id="十、复盘三句话"><a href="#十、复盘三句话" class="headerlink" title="十、复盘三句话"></a>十、复盘三句话</h2><ol>
+<li><strong>建模 &#x3D; 选得准 + 动得对</strong>：选择模式、循环选择、相连选择是效率的分水岭。</li>
+<li><strong><code>G</code> &#x2F; <code>R</code> &#x2F; <code>S</code> 只是开始</strong>：真正让位置精确的是轴约束、数值输入和吸附。</li>
+<li><strong>面一定要朝外</strong>：法线错了，后面材质、渲染、导出全是白费。</li>
+</ol>
+<hr>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV14u41147YH/?p=6">【Kurt】Blender 零基础入门教程（P6 点线面的选择与控制）</a></li>
+<li><a href="https://docs.blender.org/manual/zh-hans/latest/modeling/meshes/selecting/index.html">Blender 官方手册：网格选择</a></li>
+<li><a href="https://docs.blender.org/manual/zh-hans/latest/modeling/meshes/editing/mesh/normals.html">Blender 官方手册：网格法线</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+      <tags>
+        <tag>Blender</tag>
+        <tag>建模</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blender 建模篇 2.2：十大建模操作</title>
+    <url>/c666c0f2e19a/</url>
+    <content><![CDATA[<blockquote>
+<p>课程：<a href="https://www.bilibili.com/video/BV14u41147YH/?p=7">【Kurt】Blender 零基础入门教程</a>（UP 主：KurTips）<br>章节：建模篇 2.2 · P7 · 时长约 17 分半<br>上一节：<a href="/40337f4f2546/">2.1 点线面的选择与控制</a></p>
+</blockquote>
+<p><strong>一句话总结</strong>：这一集是”建模动词表”——把点、线、面变成想要的形状，靠的就是<strong>挤出、内插、倒角、环切、挤出流形</strong>这五个”造型动作”，再加<strong>合并、断开、封面、切刀、桥接</strong>这五个”修整动作”。</p>
+<hr>
+<h2 id="〇、热身：三个小工具和操控器"><a href="#〇、热身：三个小工具和操控器" class="headerlink" title="〇、热身：三个小工具和操控器"></a>〇、热身：三个小工具和操控器</h2><p>正片之前，视频先用几分钟过了几个辅助工具，都很轻量：</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>位置</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标注 Annotate</td>
+<td>左侧工具栏的笔</td>
+<td>在视图里随手画线写字做标记；按住 <code>Ctrl</code> 涂抹可以擦除</td>
+</tr>
+<tr>
+<td>测量 Measure</td>
+<td>左侧工具栏</td>
+<td>拉一条线量长度、角度；按住 <code>Ctrl</code> 可以吸附到顶点、边</td>
+</tr>
+<tr>
+<td>添加模型</td>
+<td><code>Shift + A</code></td>
+<td>快速新建基本体</td>
+</tr>
+</tbody></table>
+<p>关于”添加模型”，有一个必须分清的区别：</p>
+<ul>
+<li><strong>物体模式</strong>下 <code>Shift + A</code>：新建一个<strong>独立物体</strong>。</li>
+<li><strong>编辑模式</strong>下 <code>Shift + A</code>：新建的图形会并进<strong>当前物体</strong>的网格里，它和原来的物体是同一个对象，不是两个。</li>
+</ul>
+<blockquote>
+<p>这个区别后面会反复用到：两个物体不能直接”桥接”，必须先 <code>Ctrl + J</code> 合并；而编辑模式里加出来的东西本来就在同一个物体里。</p>
+</blockquote>
+<p>另外，如果视图里看不到移动用的三个箭头，去视图右上角的<strong>操控器（Gizmo）</strong>设置里把”移动”勾上即可。</p>
+<hr>
+<h2 id="一、挤出-Extrude-·-E"><a href="#一、挤出-Extrude-·-E" class="headerlink" title="一、挤出 Extrude · E"></a>一、挤出 Extrude · <code>E</code></h2><p>挤出是建模里出现频率最高的操作，它的本质是<strong>给选中的元素”长出”新的几何</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>在什么模式</th>
+<th>按 <code>E</code> 之后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>点模式</td>
+<td>新生成一个点，和原来的点连成一条边</td>
+</tr>
+<tr>
+<td>边模式</td>
+<td>新生成一条边，和原来的边围成一个面</td>
+</tr>
+<tr>
+<td>面模式</td>
+<td>新生成一个面，和原来的面围成一个体</td>
+</tr>
+</tbody></table>
+<p>配合上一节的变换知识：</p>
+<ul>
+<li>按下 <code>E</code> 后按 <code>X</code> &#x2F; <code>Y</code> &#x2F; <code>Z</code>，可以沿指定轴挤出。</li>
+<li>按下 <code>E</code> 后直接输入数字，可以精确控制挤出距离。</li>
+<li><code>Ctrl + 右键</code>：在点击的位置<strong>快速挤出</strong>，一步到位。</li>
+</ul>
+<h3 id="1-新手必踩的坑：右键取消-≠-撤销"><a href="#1-新手必踩的坑：右键取消-≠-撤销" class="headerlink" title="1. 新手必踩的坑：右键取消 ≠ 撤销"></a>1. 新手必踩的坑：右键取消 ≠ 撤销</h3><p><code>E</code> 挤出之后，如果<strong>点右键</strong>，你只是取消了”移动”这一步，<strong>挤出的点、线、面仍然留在原地</strong>，和原来的面重叠在一起。之后按 <code>G</code> 还能把它拖出来。</p>
+<p>这就是很多人”怎么多出来一层””倒角怎么变歪了”的根源。要彻底撤销，请用 <code>Ctrl + Z</code>，而不是右键。</p>
+<h3 id="2-Alt-E-里的四个变体"><a href="#2-Alt-E-里的四个变体" class="headerlink" title="2. Alt + E 里的四个变体"></a>2. <code>Alt + E</code> 里的四个变体</h3><p><code>Alt + E</code> 会打开挤出的扩展菜单：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>效果</th>
+<th>典型用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>沿法向挤出</td>
+<td>沿着面的法线方向长出来</td>
+<td>给曲面加厚度、做凹凸</td>
+</tr>
+<tr>
+<td>挤出各个面</td>
+<td>多个面<strong>各自独立</strong>挤出，可以分别调整</td>
+<td>做手指、树枝分叉</td>
+</tr>
+<tr>
+<td>挤出至光标</td>
+<td>挤出的终点由鼠标点击位置决定</td>
+<td>快速定位</td>
+</tr>
+<tr>
+<td>挤出流形</td>
+<td>智能挤出，自动和相邻面连接（见第五节）</td>
+<td>管道、开口、复杂拓扑</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="二、内插面-Inset-·-I"><a href="#二、内插面-Inset-·-I" class="headerlink" title="二、内插面 Inset · I"></a>二、内插面 Inset · <code>I</code></h2><p>内插就是在选中的面<strong>内部再缩出一圈面</strong>，相当于”向内挤出一个面”。</p>
+<ul>
+<li>按 <code>I</code> 后移动鼠标控制内插的宽度，左键确认。</li>
+<li>和挤出不同：内插后点右键取消，<strong>不会</strong>在原地留下一个复制的面。</li>
+<li>小技巧：鼠标离物体远一点再按 <code>I</code>，内插的幅度更好控制（鼠标离得近，稍微一动就到底了）。</li>
+</ul>
+<p><strong>用途</strong>：做面板、窗框、手机屏幕边框；也是倒角前的常用准备动作——先内插出一圈面，再对那圈边倒角，边缘会干净很多。</p>
+<hr>
+<h2 id="三、倒角-Bevel-·-Ctrl-B"><a href="#三、倒角-Bevel-·-Ctrl-B" class="headerlink" title="三、倒角 Bevel · Ctrl + B"></a>三、倒角 Bevel · <code>Ctrl + B</code></h2><p>倒角是把一条硬邦邦的边”削圆”或”削平”。</p>
+<ul>
+<li>选中边 → <code>Ctrl + B</code> → 拖动鼠标控制倒角宽度。</li>
+<li><strong>滚动滚轮</strong>：增加 &#x2F; 减少倒角的段数。段数越多越圆滑，1 段就是一条斜切。</li>
+<li>按 <code>F9</code>（或点左下角的参数面板）可以随时改：宽度、段数、轮廓。</li>
+</ul>
+<p>几个经验：</p>
+<ul>
+<li>只选一条边，就是单边倒角；选一圈循环边（<code>Alt + 单击</code>），就是整圈倒角，做圆柱、桌角最常用。</li>
+<li><strong>轮廓（Profile）</strong>默认 0.5，是标准圆弧；调大或调小会变成外凸 &#x2F; 内凹的造型。</li>
+<li>倒角”变歪””变成扇形”通常不是倒角本身的问题，而是模型里有<strong>重叠的点或面</strong>（多半是挤出后右键取消留下的）。解决：进点模式 <code>A</code> 全选 → <code>M</code> → <strong>按距离合并</strong>，再重新倒角。</li>
+<li>视频里的顺序是”先 <code>I</code> 内插，再 <code>Ctrl + B</code> 倒角”，这样得到的是整齐的斜切；直接对边倒角则是圆弧过渡。两种效果没有对错，看你要什么。</li>
+</ul>
+<hr>
+<h2 id="四、环切-Loop-Cut-·-Ctrl-R"><a href="#四、环切-Loop-Cut-·-Ctrl-R" class="headerlink" title="四、环切 Loop Cut · Ctrl + R"></a>四、环切 Loop Cut · <code>Ctrl + R</code></h2><p>环切是给模型<strong>加一圈线</strong>，为后续弯曲、细分、做细节提供支撑。</p>
+<p>操作分三步，节奏要记牢：</p>
+<ol>
+<li><code>Ctrl + R</code>，鼠标移到模型上，出现一圈<strong>黄色预览线</strong>。</li>
+<li><strong>滚动滚轮</strong>增加环数（这是唯一的加数量方式）。</li>
+<li><strong>左键</strong>落刀 → 移动鼠标滑移位置 → 再<strong>左键</strong>确认；或者直接<strong>右键</strong>，让这圈线固定在正中间。</li>
+</ol>
+<p>常见问题：</p>
+<ul>
+<li><strong>滚轮没反应、变成缩放视图</strong>：说明你是点了左侧工具栏的环切图标，而不是用快捷键 <code>Ctrl + R</code> 进入了环切模式。必须用快捷键，且进入后不要先点空白处。</li>
+<li>环切在<strong>四边形</strong>网格上才顺畅；遇到三角面、n-gon 会中断。</li>
+<li>环切出来的线默认是”滑移”状态，没确认前都可以左右挪，确认后就固定了。</li>
+</ul>
+<hr>
+<h2 id="五、挤出流形-Extrude-Manifold-·-Alt-E"><a href="#五、挤出流形-Extrude-Manifold-·-Alt-E" class="headerlink" title="五、挤出流形 Extrude Manifold · Alt + E"></a>五、挤出流形 Extrude Manifold · <code>Alt + E</code></h2><p>普通挤出（挤出选区）是”复制一份再移动”，会在原位置留下<strong>重复的边和面</strong>；挤出流形是”生长并连接”，会智能处理和相邻面的关系，保持网格干净。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>挤出选区（<code>E</code>）</th>
+<th>挤出流形（<code>Alt + E</code>）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>逻辑</td>
+<td>复制并移动</td>
+<td>生长并连接</td>
+</tr>
+<tr>
+<td>重复几何</td>
+<td>容易留下内部重复面</td>
+<td>自动处理，保持水密</td>
+</tr>
+<tr>
+<td>适用</td>
+<td>简单的凸起、加厚</td>
+<td>管道、分支、开口、复杂拓扑</td>
+</tr>
+</tbody></table>
+<p>注意两点：</p>
+<ol>
+<li>新版 Blender 里，”挤出流形”藏在<strong>长按挤出图标</strong>弹出的小菜单里，或者用 <code>Alt + E</code> 选择。</li>
+<li>如果按 <code>Alt + E</code> 之后发现多出一圈”薄片”，通常是因为**在它之前误按过一次 <code>E</code>**（哪怕你右键取消了），留下了薄边。先 <code>Ctrl + Z</code> 撤干净，再重新操作。</li>
+</ol>
+<hr>
+<h2 id="六、合并-Merge-·-M"><a href="#六、合并-Merge-·-M" class="headerlink" title="六、合并 Merge · M"></a>六、合并 Merge · <code>M</code></h2><p><code>M</code> 是把选中的点”焊”到一起，菜单里有几种方式：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>到中心</td>
+<td>所有选中点合并到它们的几何中心</td>
+</tr>
+<tr>
+<td>到光标</td>
+<td>合并到 3D 游标的位置</td>
+</tr>
+<tr>
+<td>首选点 &#x2F; 末选点</td>
+<td>合并到第一个 &#x2F; 最后一个选中的点</td>
+</tr>
+<tr>
+<td><strong>按距离</strong></td>
+<td>距离小于阈值的点自动合并，最常用</td>
+</tr>
+</tbody></table>
+<ul>
+<li>“首选点 &#x2F; 末选点”需要<strong>按住 <code>Shift</code> 依次点选</strong>两个点才有顺序；框选、刷选是分不出先后的。</li>
+<li><strong>按距离合并</strong>是清理模型的神器：挤出取消留下的重叠点、导入模型带进来的垃圾顶点，全选后 <code>M</code> → 按距离，一次清干净。阈值在左下角面板里调，别调太大，否则会把该保留的细节也焊掉。</li>
+</ul>
+<hr>
+<h2 id="七、断开-Rip-·-V"><a href="#七、断开-Rip-·-V" class="headerlink" title="七、断开 Rip · V"></a>七、断开 Rip · <code>V</code></h2><p><code>V</code> 是”撕开”：把一个顶点连同它连接的边拆开，让原本连着的面可以分开。</p>
+<ul>
+<li>顶点必须连着<strong>三个以上的面</strong>，按 <code>V</code> 才能撕开（只连两个面的话，撕开没有意义）。</li>
+<li>撕开之后按 <code>G</code>，就能像”开盖”一样把一部分掀起来。</li>
+<li>如果按 <code>V</code> 只开了一个面，多半是选择范围不对：把相邻的点一起选上，或者检查拓扑是不是本来就没连上。</li>
+</ul>
+<p><strong>用途</strong>：做盒子的开口、翻盖、眼睑、嘴部、书页。</p>
+<hr>
+<h2 id="八、封面：F-与栅格填充"><a href="#八、封面：F-与栅格填充" class="headerlink" title="八、封面：F 与栅格填充"></a>八、封面：<code>F</code> 与栅格填充</h2><p>模型上有洞的时候，需要把洞补上，有两种做法：</p>
+<h3 id="1-快速封面-F"><a href="#1-快速封面-F" class="headerlink" title="1. 快速封面 F"></a>1. 快速封面 <code>F</code></h3><p>选中一圈循环边，按 <code>F</code>，直接填一个 n-gon（多边形面）。快，但 n-gon 在细分、渲染时可能出问题。</p>
+<h3 id="2-栅格填充-Grid-Fill"><a href="#2-栅格填充-Grid-Fill" class="headerlink" title="2. 栅格填充 Grid Fill"></a>2. 栅格填充 Grid Fill</h3><p>选中一圈循环边 → 面菜单（<code>Ctrl + F</code>）→ <strong>栅格填充</strong>，会填成整齐的四边面网格，还能在左下角调跨度、偏移。</p>
+<ul>
+<li><strong>必须是偶数条边</strong>才能栅格填充。</li>
+<li>奇数条边怎么办：选中其中一条边 → 右键 → <strong>细分</strong>，把它变成两条，凑成偶数，再填充。</li>
+<li>视频里老师口误说成了 <code>Ctrl + E</code>，<code>Ctrl + E</code> 是<strong>边</strong>菜单，<code>Ctrl + F</code> 才是<strong>面</strong>菜单。</li>
+</ul>
+<hr>
+<h2 id="九、切刀-Knife-·-K"><a href="#九、切刀-Knife-·-K" class="headerlink" title="九、切刀 Knife · K"></a>九、切刀 Knife · <code>K</code></h2><p>切刀是”手动加线”的工具，鼠标点到哪里，就在哪里切一刀。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>K</code></td>
+<td>进入切刀工具</td>
+</tr>
+<tr>
+<td>左键点击</td>
+<td>落一个切点，连续点击就连成切线</td>
+</tr>
+<tr>
+<td><code>空格</code> &#x2F; <code>回车</code></td>
+<td>确认切割并退出工具</td>
+</tr>
+<tr>
+<td>右键</td>
+<td>结束当前这条切线，但仍留在切刀工具里</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>放弃这次切割（已经画的线会消失）</td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td>切换”穿透切割”，一刀切透整个物体；再按一次恢复只切可见面</td>
+</tr>
+</tbody></table>
+<p><strong>用途</strong>：在平面上切出 logo 轮廓、给 n-gon 补线、做不规则的分割。切完记得确认，别习惯性按 <code>Esc</code> 把刚画好的线全丢了。</p>
+<blockquote>
+<p>不同版本对右键、空格的响应略有差异，拿不准就看左下角状态栏的提示。</p>
+</blockquote>
+<hr>
+<h2 id="十、桥接-Bridge-·-Ctrl-E"><a href="#十、桥接-Bridge-·-Ctrl-E" class="headerlink" title="十、桥接 Bridge · Ctrl + E"></a>十、桥接 Bridge · <code>Ctrl + E</code></h2><p>桥接是把<strong>两圈边数相同的循环边</strong>用面连起来，做管道、手臂、脖子、袖口特别方便。</p>
+<ol>
+<li>选中两圈循环边（<code>Alt + 单击</code> 各选一圈）。</li>
+<li><code>Ctrl + E</code> → <strong>桥接循环边</strong>。</li>
+<li>在左下角调段数、偏移、平滑。</li>
+</ol>
+<p>两个前提：</p>
+<ul>
+<li><strong>两个物体不能直接桥接</strong>。要先把它们 <code>Ctrl + J</code> 合并成一个物体，再进编辑模式桥接。</li>
+<li>两圈边的<strong>边数必须相同</strong>，否则会报错或扭成一团。边数不够的一边，先用环切 <code>Ctrl + R</code> 加线。</li>
+</ul>
+<hr>
+<h2 id="收尾两件套：合并物体-Ctrl-J-与分离-P"><a href="#收尾两件套：合并物体-Ctrl-J-与分离-P" class="headerlink" title="收尾两件套：合并物体 Ctrl + J 与分离 P"></a>收尾两件套：合并物体 <code>Ctrl + J</code> 与分离 <code>P</code></h2><p>这两个是物体级别的操作，和上面的”合并点 <code>M</code>“不是一回事：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>合并物体 Join</td>
+<td><code>Ctrl + J</code></td>
+<td>把多个物体合并成一个（材质保留，原点取活动物体）</td>
+</tr>
+<tr>
+<td>分离 Separate</td>
+<td><code>P</code></td>
+<td>把选中的部分拆成独立物体，可选”选中项 &#x2F; 按材质 &#x2F; 按松散块”</td>
+</tr>
+</tbody></table>
+<ul>
+<li>分离出来的部分原点还在原处，旋转、缩放时会觉得”绕得很远”，这是正常的。</li>
+<li>分离后如果动一个部分、其他部分跟着动，先检查顶部的<strong>衰减编辑</strong>（那个小圆点，快捷键 <code>O</code>）是不是开着，关掉即可。</li>
+</ul>
+<hr>
+<h2 id="快捷键速查"><a href="#快捷键速查" class="headerlink" title="快捷键速查"></a>快捷键速查</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>快捷键</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>挤出</td>
+<td><code>E</code></td>
+<td>点长线、线长面、面长体</td>
+</tr>
+<tr>
+<td>快速挤出</td>
+<td><code>Ctrl + 右键</code></td>
+<td>点到哪长到哪</td>
+</tr>
+<tr>
+<td>挤出菜单</td>
+<td><code>Alt + E</code></td>
+<td>沿法向 &#x2F; 各个面 &#x2F; 至光标 &#x2F; 流形</td>
+</tr>
+<tr>
+<td>内插面</td>
+<td><code>I</code></td>
+<td>面内再缩一圈</td>
+</tr>
+<tr>
+<td>倒角</td>
+<td><code>Ctrl + B</code></td>
+<td>滚轮加段数</td>
+</tr>
+<tr>
+<td>环切</td>
+<td><code>Ctrl + R</code></td>
+<td>滚轮加环数，左键落刀</td>
+</tr>
+<tr>
+<td>合并点</td>
+<td><code>M</code></td>
+<td>按距离合并最常用</td>
+</tr>
+<tr>
+<td>断开</td>
+<td><code>V</code></td>
+<td>撕开顶点，开盖</td>
+</tr>
+<tr>
+<td>封面</td>
+<td><code>F</code></td>
+<td>填一个 n-gon</td>
+</tr>
+<tr>
+<td>栅格填充</td>
+<td><code>Ctrl + F</code></td>
+<td>填四边面网格，需偶数边</td>
+</tr>
+<tr>
+<td>切刀</td>
+<td><code>K</code></td>
+<td>空格确认，<code>C</code> 穿透</td>
+</tr>
+<tr>
+<td>桥接</td>
+<td><code>Ctrl + E</code></td>
+<td>两圈等边数的边</td>
+</tr>
+<tr>
+<td>合并物体</td>
+<td><code>Ctrl + J</code></td>
+<td>多个物体并成一个</td>
+</tr>
+<tr>
+<td>分离</td>
+<td><code>P</code></td>
+<td>拆成独立物体</td>
+</tr>
+<tr>
+<td>参数面板</td>
+<td><code>F9</code></td>
+<td>改上一步操作的数值</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="踩坑清单"><a href="#踩坑清单" class="headerlink" title="踩坑清单"></a>踩坑清单</h2><ol>
+<li><strong>挤出后右键取消，模型多了一层</strong>：右键只取消了移动，几何还在。要彻底撤销用 <code>Ctrl + Z</code>。</li>
+<li><strong>滚轮不能加环数 &#x2F; 加倒角段数</strong>：必须用快捷键进入操作，不能点工具栏图标；也不要在操作中先点空白处确认。</li>
+<li><strong>倒角变歪、变扇形</strong>：多半有重叠点。点模式 <code>A</code> 全选 → <code>M</code> 按距离合并 → 重新倒角。</li>
+<li><strong>环切切不动</strong>：检查是不是四边形区域；三角面、n-gon 会中断环切。</li>
+<li><strong>栅格填充没反应</strong>：边数是奇数。先细分一条边凑成偶数。</li>
+<li><strong>桥接报错</strong>：两个物体没合并（先 <code>Ctrl + J</code>），或者两圈边数不一样。</li>
+<li><strong>切刀切完线没了</strong>：按了 <code>Esc</code>。<code>Esc</code> 是放弃，确认要用空格或回车。</li>
+<li><strong>分离后一动全动</strong>：关掉衰减编辑（<code>O</code>），或检查轴心点。</li>
+<li><strong>按 <code>Alt + Z</code> 弹出显卡面板</strong>：驱动热键冲突，去驱动里改掉。</li>
+</ol>
+<hr>
+<h2 id="练习：把十个动作串起来"><a href="#练习：把十个动作串起来" class="headerlink" title="练习：把十个动作串起来"></a>练习：把十个动作串起来</h2><ol>
+<li>新建立方体 → <code>I</code> 内插顶面 → <code>E</code> 向上挤出 → <code>Ctrl + B</code> 给四条竖边倒角 → <code>Ctrl + R</code> 加两圈线，做一个带圆角的”音箱”。</li>
+<li>新建两个圆柱，物体模式 <code>Ctrl + J</code> 合并 → 编辑模式各选一圈边 → <code>Ctrl + E</code> 桥接，做一根弯管。</li>
+<li>用 <code>K</code> 切刀在一个面上切出简单的字母轮廓，再 <code>E</code> 挤出，做立体字。</li>
+<li>立方体选顶面 <code>I</code> 内插 → 删掉中间的面 → 选一圈边 <code>V</code> 断开、<code>G</code> 掀起，做一个开盖的盒子。</li>
+<li>用 <code>Alt + E</code> → 挤出流形做一条分支管道，对比普通 <code>E</code> 挤出留下的内部面。</li>
+</ol>
+<hr>
+<h2 id="复盘"><a href="#复盘" class="headerlink" title="复盘"></a>复盘</h2><ul>
+<li><strong>造型五件套</strong>：挤出（长）、内插（缩）、倒角（圆）、环切（加线）、挤出流形（干净地长）。</li>
+<li><strong>修整五件套</strong>：合并（焊点）、断开（撕开）、封面（补洞）、切刀（加刀）、桥接（连边）。</li>
+<li><strong>两条铁律</strong>：右键取消不等于撤销；两个物体要先合并才能桥接。</li>
+</ul>
+<hr>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV14u41147YH/?p=7">【Kurt】Blender 零基础入门教程（P7 十大建模操作）</a></li>
+<li><a href="https://www.cnblogs.com/lilith-lt/p/19541008">同课学习笔记：Blender 十大建模操作</a></li>
+<li><a href="https://docs.blender.org/manual/zh-hans/latest/modeling/meshes/editing/index.html">Blender 官方手册：网格编辑</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Blender</category>
+      </categories>
+      <tags>
+        <tag>Blender</tag>
+        <tag>建模</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
 </search>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 7.0.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>Blender 建模篇 2.2：十大建模操作 - Kaixin09</title>
+
+  
+    <meta name="description" content="课程：【Kurt】Blender 零基础入门教程（UP 主：KurTips）章节：建模篇 2.2 · P7 · 时长约 17 分半上一节：2.1 点线面的选择与控制  一句话总结：这一集是”建模动词表”——把点、线、面变成想要的形状，靠的就是挤出、内插、倒角、环切、挤出流形这五个”造型动作”，再加合并、断开、封面、切刀、桥接这五个”修整动作”。  〇、热身：三个小工具和操控器正片之前，视频先用几">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Blender 建模篇 2.2：十大建模操作">
+<meta property="og:url" content="https://blog.kaixin09.cn/c666c0f2e19a/index.html">
+<meta property="og:site_name" content="Kaixin09">
+<meta property="og:description" content="课程：【Kurt】Blender 零基础入门教程（UP 主：KurTips）章节：建模篇 2.2 · P7 · 时长约 17 分半上一节：2.1 点线面的选择与控制  一句话总结：这一集是”建模动词表”——把点、线、面变成想要的形状，靠的就是挤出、内插、倒角、环切、挤出流形这五个”造型动作”，再加合并、断开、封面、切刀、桥接这五个”修整动作”。  〇、热身：三个小工具和操控器正片之前，视频先用几">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-09T13:45:00.000Z">
+<meta property="article:modified_time" content="2026-11-09T13:38:59.985Z">
+<meta property="article:author" content="Kaixin09">
+<meta property="article:tag" content="Blender">
+<meta property="article:tag" content="建模">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="Blender,建模,学习笔记">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Kaixin09" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311222243672.png">
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/Kaixin09/hexofile/img/202311222241731.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Kaixin09</div><div class="sub normal cap">胜固欣然，败亦可喜</div><div class="sub hover cap" style="opacity:0"> blog.kaixin09.cn</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Blender 建模篇 2.2：十大建模操作</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%87%E3%80%81%E7%83%AD%E8%BA%AB%EF%BC%9A%E4%B8%89%E4%B8%AA%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%92%8C%E6%93%8D%E6%8E%A7%E5%99%A8"><span class="toc-text">〇、热身：三个小工具和操控器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%8C%A4%E5%87%BA-Extrude-%C2%B7-E"><span class="toc-text">一、挤出 Extrude · E</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%B0%E6%89%8B%E5%BF%85%E8%B8%A9%E7%9A%84%E5%9D%91%EF%BC%9A%E5%8F%B3%E9%94%AE%E5%8F%96%E6%B6%88-%E2%89%A0-%E6%92%A4%E9%94%80"><span class="toc-text">1. 新手必踩的坑：右键取消 ≠ 撤销</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Alt-E-%E9%87%8C%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%8F%98%E4%BD%93"><span class="toc-text">2. Alt + E 里的四个变体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%86%85%E6%8F%92%E9%9D%A2-Inset-%C2%B7-I"><span class="toc-text">二、内插面 Inset · I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%80%92%E8%A7%92-Bevel-%C2%B7-Ctrl-B"><span class="toc-text">三、倒角 Bevel · Ctrl + B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%8E%AF%E5%88%87-Loop-Cut-%C2%B7-Ctrl-R"><span class="toc-text">四、环切 Loop Cut · Ctrl + R</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%8C%A4%E5%87%BA%E6%B5%81%E5%BD%A2-Extrude-Manifold-%C2%B7-Alt-E"><span class="toc-text">五、挤出流形 Extrude Manifold · Alt + E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%90%88%E5%B9%B6-Merge-%C2%B7-M"><span class="toc-text">六、合并 Merge · M</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%96%AD%E5%BC%80-Rip-%C2%B7-V"><span class="toc-text">七、断开 Rip · V</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%B0%81%E9%9D%A2%EF%BC%9AF-%E4%B8%8E%E6%A0%85%E6%A0%BC%E5%A1%AB%E5%85%85"><span class="toc-text">八、封面：F 与栅格填充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BF%AB%E9%80%9F%E5%B0%81%E9%9D%A2-F"><span class="toc-text">1. 快速封面 F</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A0%85%E6%A0%BC%E5%A1%AB%E5%85%85-Grid-Fill"><span class="toc-text">2. 栅格填充 Grid Fill</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%88%87%E5%88%80-Knife-%C2%B7-K"><span class="toc-text">九、切刀 Knife · K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%A1%A5%E6%8E%A5-Bridge-%C2%B7-Ctrl-E"><span class="toc-text">十、桥接 Bridge · Ctrl + E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B6%E5%B0%BE%E4%B8%A4%E4%BB%B6%E5%A5%97%EF%BC%9A%E5%90%88%E5%B9%B6%E7%89%A9%E4%BD%93-Ctrl-J-%E4%B8%8E%E5%88%86%E7%A6%BB-P"><span class="toc-text">收尾两件套：合并物体 Ctrl + J 与分离 P</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%80%9F%E6%9F%A5"><span class="toc-text">快捷键速查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E6%B8%85%E5%8D%95"><span class="toc-text">踩坑清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%8A%8A%E5%8D%81%E4%B8%AA%E5%8A%A8%E4%BD%9C%E4%B8%B2%E8%B5%B7%E6%9D%A5"><span class="toc-text">练习：把十个动作串起来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E7%9B%98"><span class="toc-text">复盘</span></a></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Blender/">Blender</a></div><div id="post-meta">发布于&nbsp;<time datetime="2026-11-09T13:45:00.000Z">2026-11-09</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>Blender 建模篇 2.2：十大建模操作</span></h1>
+<blockquote>
+<p>课程：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14u41147YH/?p=7">【Kurt】Blender 零基础入门教程</a>（UP 主：KurTips）<br>章节：建模篇 2.2 · P7 · 时长约 17 分半<br>上一节：<a href="/40337f4f2546/">2.1 点线面的选择与控制</a></p>
+</blockquote>
+<p><strong>一句话总结</strong>：这一集是”建模动词表”——把点、线、面变成想要的形状，靠的就是<strong>挤出、内插、倒角、环切、挤出流形</strong>这五个”造型动作”，再加<strong>合并、断开、封面、切刀、桥接</strong>这五个”修整动作”。</p>
+<hr>
+<h2 id="〇、热身：三个小工具和操控器"><a href="#〇、热身：三个小工具和操控器" class="headerlink" title="〇、热身：三个小工具和操控器"></a>〇、热身：三个小工具和操控器</h2><p>正片之前，视频先用几分钟过了几个辅助工具，都很轻量：</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>位置</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标注 Annotate</td>
+<td>左侧工具栏的笔</td>
+<td>在视图里随手画线写字做标记；按住 <code>Ctrl</code> 涂抹可以擦除</td>
+</tr>
+<tr>
+<td>测量 Measure</td>
+<td>左侧工具栏</td>
+<td>拉一条线量长度、角度；按住 <code>Ctrl</code> 可以吸附到顶点、边</td>
+</tr>
+<tr>
+<td>添加模型</td>
+<td><code>Shift + A</code></td>
+<td>快速新建基本体</td>
+</tr>
+</tbody></table>
+<p>关于”添加模型”，有一个必须分清的区别：</p>
+<ul>
+<li><strong>物体模式</strong>下 <code>Shift + A</code>：新建一个<strong>独立物体</strong>。</li>
+<li><strong>编辑模式</strong>下 <code>Shift + A</code>：新建的图形会并进<strong>当前物体</strong>的网格里，它和原来的物体是同一个对象，不是两个。</li>
+</ul>
+<blockquote>
+<p>这个区别后面会反复用到：两个物体不能直接”桥接”，必须先 <code>Ctrl + J</code> 合并；而编辑模式里加出来的东西本来就在同一个物体里。</p>
+</blockquote>
+<p>另外，如果视图里看不到移动用的三个箭头，去视图右上角的<strong>操控器（Gizmo）</strong>设置里把”移动”勾上即可。</p>
+<hr>
+<h2 id="一、挤出-Extrude-·-E"><a href="#一、挤出-Extrude-·-E" class="headerlink" title="一、挤出 Extrude · E"></a>一、挤出 Extrude · <code>E</code></h2><p>挤出是建模里出现频率最高的操作，它的本质是<strong>给选中的元素”长出”新的几何</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>在什么模式</th>
+<th>按 <code>E</code> 之后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>点模式</td>
+<td>新生成一个点，和原来的点连成一条边</td>
+</tr>
+<tr>
+<td>边模式</td>
+<td>新生成一条边，和原来的边围成一个面</td>
+</tr>
+<tr>
+<td>面模式</td>
+<td>新生成一个面，和原来的面围成一个体</td>
+</tr>
+</tbody></table>
+<p>配合上一节的变换知识：</p>
+<ul>
+<li>按下 <code>E</code> 后按 <code>X</code> &#x2F; <code>Y</code> &#x2F; <code>Z</code>，可以沿指定轴挤出。</li>
+<li>按下 <code>E</code> 后直接输入数字，可以精确控制挤出距离。</li>
+<li><code>Ctrl + 右键</code>：在点击的位置<strong>快速挤出</strong>，一步到位。</li>
+</ul>
+<h3 id="1-新手必踩的坑：右键取消-≠-撤销"><a href="#1-新手必踩的坑：右键取消-≠-撤销" class="headerlink" title="1. 新手必踩的坑：右键取消 ≠ 撤销"></a>1. 新手必踩的坑：右键取消 ≠ 撤销</h3><p><code>E</code> 挤出之后，如果<strong>点右键</strong>，你只是取消了”移动”这一步，<strong>挤出的点、线、面仍然留在原地</strong>，和原来的面重叠在一起。之后按 <code>G</code> 还能把它拖出来。</p>
+<p>这就是很多人”怎么多出来一层””倒角怎么变歪了”的根源。要彻底撤销，请用 <code>Ctrl + Z</code>，而不是右键。</p>
+<h3 id="2-Alt-E-里的四个变体"><a href="#2-Alt-E-里的四个变体" class="headerlink" title="2. Alt + E 里的四个变体"></a>2. <code>Alt + E</code> 里的四个变体</h3><p><code>Alt + E</code> 会打开挤出的扩展菜单：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>效果</th>
+<th>典型用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>沿法向挤出</td>
+<td>沿着面的法线方向长出来</td>
+<td>给曲面加厚度、做凹凸</td>
+</tr>
+<tr>
+<td>挤出各个面</td>
+<td>多个面<strong>各自独立</strong>挤出，可以分别调整</td>
+<td>做手指、树枝分叉</td>
+</tr>
+<tr>
+<td>挤出至光标</td>
+<td>挤出的终点由鼠标点击位置决定</td>
+<td>快速定位</td>
+</tr>
+<tr>
+<td>挤出流形</td>
+<td>智能挤出，自动和相邻面连接（见第五节）</td>
+<td>管道、开口、复杂拓扑</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="二、内插面-Inset-·-I"><a href="#二、内插面-Inset-·-I" class="headerlink" title="二、内插面 Inset · I"></a>二、内插面 Inset · <code>I</code></h2><p>内插就是在选中的面<strong>内部再缩出一圈面</strong>，相当于”向内挤出一个面”。</p>
+<ul>
+<li>按 <code>I</code> 后移动鼠标控制内插的宽度，左键确认。</li>
+<li>和挤出不同：内插后点右键取消，<strong>不会</strong>在原地留下一个复制的面。</li>
+<li>小技巧：鼠标离物体远一点再按 <code>I</code>，内插的幅度更好控制（鼠标离得近，稍微一动就到底了）。</li>
+</ul>
+<p><strong>用途</strong>：做面板、窗框、手机屏幕边框；也是倒角前的常用准备动作——先内插出一圈面，再对那圈边倒角，边缘会干净很多。</p>
+<hr>
+<h2 id="三、倒角-Bevel-·-Ctrl-B"><a href="#三、倒角-Bevel-·-Ctrl-B" class="headerlink" title="三、倒角 Bevel · Ctrl + B"></a>三、倒角 Bevel · <code>Ctrl + B</code></h2><p>倒角是把一条硬邦邦的边”削圆”或”削平”。</p>
+<ul>
+<li>选中边 → <code>Ctrl + B</code> → 拖动鼠标控制倒角宽度。</li>
+<li><strong>滚动滚轮</strong>：增加 &#x2F; 减少倒角的段数。段数越多越圆滑，1 段就是一条斜切。</li>
+<li>按 <code>F9</code>（或点左下角的参数面板）可以随时改：宽度、段数、轮廓。</li>
+</ul>
+<p>几个经验：</p>
+<ul>
+<li>只选一条边，就是单边倒角；选一圈循环边（<code>Alt + 单击</code>），就是整圈倒角，做圆柱、桌角最常用。</li>
+<li><strong>轮廓（Profile）</strong>默认 0.5，是标准圆弧；调大或调小会变成外凸 &#x2F; 内凹的造型。</li>
+<li>倒角”变歪””变成扇形”通常不是倒角本身的问题，而是模型里有<strong>重叠的点或面</strong>（多半是挤出后右键取消留下的）。解决：进点模式 <code>A</code> 全选 → <code>M</code> → <strong>按距离合并</strong>，再重新倒角。</li>
+<li>视频里的顺序是”先 <code>I</code> 内插，再 <code>Ctrl + B</code> 倒角”，这样得到的是整齐的斜切；直接对边倒角则是圆弧过渡。两种效果没有对错，看你要什么。</li>
+</ul>
+<hr>
+<h2 id="四、环切-Loop-Cut-·-Ctrl-R"><a href="#四、环切-Loop-Cut-·-Ctrl-R" class="headerlink" title="四、环切 Loop Cut · Ctrl + R"></a>四、环切 Loop Cut · <code>Ctrl + R</code></h2><p>环切是给模型<strong>加一圈线</strong>，为后续弯曲、细分、做细节提供支撑。</p>
+<p>操作分三步，节奏要记牢：</p>
+<ol>
+<li><code>Ctrl + R</code>，鼠标移到模型上，出现一圈<strong>黄色预览线</strong>。</li>
+<li><strong>滚动滚轮</strong>增加环数（这是唯一的加数量方式）。</li>
+<li><strong>左键</strong>落刀 → 移动鼠标滑移位置 → 再<strong>左键</strong>确认；或者直接<strong>右键</strong>，让这圈线固定在正中间。</li>
+</ol>
+<p>常见问题：</p>
+<ul>
+<li><strong>滚轮没反应、变成缩放视图</strong>：说明你是点了左侧工具栏的环切图标，而不是用快捷键 <code>Ctrl + R</code> 进入了环切模式。必须用快捷键，且进入后不要先点空白处。</li>
+<li>环切在<strong>四边形</strong>网格上才顺畅；遇到三角面、n-gon 会中断。</li>
+<li>环切出来的线默认是”滑移”状态，没确认前都可以左右挪，确认后就固定了。</li>
+</ul>
+<hr>
+<h2 id="五、挤出流形-Extrude-Manifold-·-Alt-E"><a href="#五、挤出流形-Extrude-Manifold-·-Alt-E" class="headerlink" title="五、挤出流形 Extrude Manifold · Alt + E"></a>五、挤出流形 Extrude Manifold · <code>Alt + E</code></h2><p>普通挤出（挤出选区）是”复制一份再移动”，会在原位置留下<strong>重复的边和面</strong>；挤出流形是”生长并连接”，会智能处理和相邻面的关系，保持网格干净。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>挤出选区（<code>E</code>）</th>
+<th>挤出流形（<code>Alt + E</code>）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>逻辑</td>
+<td>复制并移动</td>
+<td>生长并连接</td>
+</tr>
+<tr>
+<td>重复几何</td>
+<td>容易留下内部重复面</td>
+<td>自动处理，保持水密</td>
+</tr>
+<tr>
+<td>适用</td>
+<td>简单的凸起、加厚</td>
+<td>管道、分支、开口、复杂拓扑</td>
+</tr>
+</tbody></table>
+<p>注意两点：</p>
+<ol>
+<li>新版 Blender 里，”挤出流形”藏在<strong>长按挤出图标</strong>弹出的小菜单里，或者用 <code>Alt + E</code> 选择。</li>
+<li>如果按 <code>Alt + E</code> 之后发现多出一圈”薄片”，通常是因为**在它之前误按过一次 <code>E</code>**（哪怕你右键取消了），留下了薄边。先 <code>Ctrl + Z</code> 撤干净，再重新操作。</li>
+</ol>
+<hr>
+<h2 id="六、合并-Merge-·-M"><a href="#六、合并-Merge-·-M" class="headerlink" title="六、合并 Merge · M"></a>六、合并 Merge · <code>M</code></h2><p><code>M</code> 是把选中的点”焊”到一起，菜单里有几种方式：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>到中心</td>
+<td>所有选中点合并到它们的几何中心</td>
+</tr>
+<tr>
+<td>到光标</td>
+<td>合并到 3D 游标的位置</td>
+</tr>
+<tr>
+<td>首选点 &#x2F; 末选点</td>
+<td>合并到第一个 &#x2F; 最后一个选中的点</td>
+</tr>
+<tr>
+<td><strong>按距离</strong></td>
+<td>距离小于阈值的点自动合并，最常用</td>
+</tr>
+</tbody></table>
+<ul>
+<li>“首选点 &#x2F; 末选点”需要<strong>按住 <code>Shift</code> 依次点选</strong>两个点才有顺序；框选、刷选是分不出先后的。</li>
+<li><strong>按距离合并</strong>是清理模型的神器：挤出取消留下的重叠点、导入模型带进来的垃圾顶点，全选后 <code>M</code> → 按距离，一次清干净。阈值在左下角面板里调，别调太大，否则会把该保留的细节也焊掉。</li>
+</ul>
+<hr>
+<h2 id="七、断开-Rip-·-V"><a href="#七、断开-Rip-·-V" class="headerlink" title="七、断开 Rip · V"></a>七、断开 Rip · <code>V</code></h2><p><code>V</code> 是”撕开”：把一个顶点连同它连接的边拆开，让原本连着的面可以分开。</p>
+<ul>
+<li>顶点必须连着<strong>三个以上的面</strong>，按 <code>V</code> 才能撕开（只连两个面的话，撕开没有意义）。</li>
+<li>撕开之后按 <code>G</code>，就能像”开盖”一样把一部分掀起来。</li>
+<li>如果按 <code>V</code> 只开了一个面，多半是选择范围不对：把相邻的点一起选上，或者检查拓扑是不是本来就没连上。</li>
+</ul>
+<p><strong>用途</strong>：做盒子的开口、翻盖、眼睑、嘴部、书页。</p>
+<hr>
+<h2 id="八、封面：F-与栅格填充"><a href="#八、封面：F-与栅格填充" class="headerlink" title="八、封面：F 与栅格填充"></a>八、封面：<code>F</code> 与栅格填充</h2><p>模型上有洞的时候，需要把洞补上，有两种做法：</p>
+<h3 id="1-快速封面-F"><a href="#1-快速封面-F" class="headerlink" title="1. 快速封面 F"></a>1. 快速封面 <code>F</code></h3><p>选中一圈循环边，按 <code>F</code>，直接填一个 n-gon（多边形面）。快，但 n-gon 在细分、渲染时可能出问题。</p>
+<h3 id="2-栅格填充-Grid-Fill"><a href="#2-栅格填充-Grid-Fill" class="headerlink" title="2. 栅格填充 Grid Fill"></a>2. 栅格填充 Grid Fill</h3><p>选中一圈循环边 → 面菜单（<code>Ctrl + F</code>）→ <strong>栅格填充</strong>，会填成整齐的四边面网格，还能在左下角调跨度、偏移。</p>
+<ul>
+<li><strong>必须是偶数条边</strong>才能栅格填充。</li>
+<li>奇数条边怎么办：选中其中一条边 → 右键 → <strong>细分</strong>，把它变成两条，凑成偶数，再填充。</li>
+<li>视频里老师口误说成了 <code>Ctrl + E</code>，<code>Ctrl + E</code> 是<strong>边</strong>菜单，<code>Ctrl + F</code> 才是<strong>面</strong>菜单。</li>
+</ul>
+<hr>
+<h2 id="九、切刀-Knife-·-K"><a href="#九、切刀-Knife-·-K" class="headerlink" title="九、切刀 Knife · K"></a>九、切刀 Knife · <code>K</code></h2><p>切刀是”手动加线”的工具，鼠标点到哪里，就在哪里切一刀。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>K</code></td>
+<td>进入切刀工具</td>
+</tr>
+<tr>
+<td>左键点击</td>
+<td>落一个切点，连续点击就连成切线</td>
+</tr>
+<tr>
+<td><code>空格</code> &#x2F; <code>回车</code></td>
+<td>确认切割并退出工具</td>
+</tr>
+<tr>
+<td>右键</td>
+<td>结束当前这条切线，但仍留在切刀工具里</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>放弃这次切割（已经画的线会消失）</td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td>切换”穿透切割”，一刀切透整个物体；再按一次恢复只切可见面</td>
+</tr>
+</tbody></table>
+<p><strong>用途</strong>：在平面上切出 logo 轮廓、给 n-gon 补线、做不规则的分割。切完记得确认，别习惯性按 <code>Esc</code> 把刚画好的线全丢了。</p>
+<blockquote>
+<p>不同版本对右键、空格的响应略有差异，拿不准就看左下角状态栏的提示。</p>
+</blockquote>
+<hr>
+<h2 id="十、桥接-Bridge-·-Ctrl-E"><a href="#十、桥接-Bridge-·-Ctrl-E" class="headerlink" title="十、桥接 Bridge · Ctrl + E"></a>十、桥接 Bridge · <code>Ctrl + E</code></h2><p>桥接是把<strong>两圈边数相同的循环边</strong>用面连起来，做管道、手臂、脖子、袖口特别方便。</p>
+<ol>
+<li>选中两圈循环边（<code>Alt + 单击</code> 各选一圈）。</li>
+<li><code>Ctrl + E</code> → <strong>桥接循环边</strong>。</li>
+<li>在左下角调段数、偏移、平滑。</li>
+</ol>
+<p>两个前提：</p>
+<ul>
+<li><strong>两个物体不能直接桥接</strong>。要先把它们 <code>Ctrl + J</code> 合并成一个物体，再进编辑模式桥接。</li>
+<li>两圈边的<strong>边数必须相同</strong>，否则会报错或扭成一团。边数不够的一边，先用环切 <code>Ctrl + R</code> 加线。</li>
+</ul>
+<hr>
+<h2 id="收尾两件套：合并物体-Ctrl-J-与分离-P"><a href="#收尾两件套：合并物体-Ctrl-J-与分离-P" class="headerlink" title="收尾两件套：合并物体 Ctrl + J 与分离 P"></a>收尾两件套：合并物体 <code>Ctrl + J</code> 与分离 <code>P</code></h2><p>这两个是物体级别的操作，和上面的”合并点 <code>M</code>“不是一回事：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>合并物体 Join</td>
+<td><code>Ctrl + J</code></td>
+<td>把多个物体合并成一个（材质保留，原点取活动物体）</td>
+</tr>
+<tr>
+<td>分离 Separate</td>
+<td><code>P</code></td>
+<td>把选中的部分拆成独立物体，可选”选中项 &#x2F; 按材质 &#x2F; 按松散块”</td>
+</tr>
+</tbody></table>
+<ul>
+<li>分离出来的部分原点还在原处，旋转、缩放时会觉得”绕得很远”，这是正常的。</li>
+<li>分离后如果动一个部分、其他部分跟着动，先检查顶部的<strong>衰减编辑</strong>（那个小圆点，快捷键 <code>O</code>）是不是开着，关掉即可。</li>
+</ul>
+<hr>
+<h2 id="快捷键速查"><a href="#快捷键速查" class="headerlink" title="快捷键速查"></a>快捷键速查</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>快捷键</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>挤出</td>
+<td><code>E</code></td>
+<td>点长线、线长面、面长体</td>
+</tr>
+<tr>
+<td>快速挤出</td>
+<td><code>Ctrl + 右键</code></td>
+<td>点到哪长到哪</td>
+</tr>
+<tr>
+<td>挤出菜单</td>
+<td><code>Alt + E</code></td>
+<td>沿法向 &#x2F; 各个面 &#x2F; 至光标 &#x2F; 流形</td>
+</tr>
+<tr>
+<td>内插面</td>
+<td><code>I</code></td>
+<td>面内再缩一圈</td>
+</tr>
+<tr>
+<td>倒角</td>
+<td><code>Ctrl + B</code></td>
+<td>滚轮加段数</td>
+</tr>
+<tr>
+<td>环切</td>
+<td><code>Ctrl + R</code></td>
+<td>滚轮加环数，左键落刀</td>
+</tr>
+<tr>
+<td>合并点</td>
+<td><code>M</code></td>
+<td>按距离合并最常用</td>
+</tr>
+<tr>
+<td>断开</td>
+<td><code>V</code></td>
+<td>撕开顶点，开盖</td>
+</tr>
+<tr>
+<td>封面</td>
+<td><code>F</code></td>
+<td>填一个 n-gon</td>
+</tr>
+<tr>
+<td>栅格填充</td>
+<td><code>Ctrl + F</code></td>
+<td>填四边面网格，需偶数边</td>
+</tr>
+<tr>
+<td>切刀</td>
+<td><code>K</code></td>
+<td>空格确认，<code>C</code> 穿透</td>
+</tr>
+<tr>
+<td>桥接</td>
+<td><code>Ctrl + E</code></td>
+<td>两圈等边数的边</td>
+</tr>
+<tr>
+<td>合并物体</td>
+<td><code>Ctrl + J</code></td>
+<td>多个物体并成一个</td>
+</tr>
+<tr>
+<td>分离</td>
+<td><code>P</code></td>
+<td>拆成独立物体</td>
+</tr>
+<tr>
+<td>参数面板</td>
+<td><code>F9</code></td>
+<td>改上一步操作的数值</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="踩坑清单"><a href="#踩坑清单" class="headerlink" title="踩坑清单"></a>踩坑清单</h2><ol>
+<li><strong>挤出后右键取消，模型多了一层</strong>：右键只取消了移动，几何还在。要彻底撤销用 <code>Ctrl + Z</code>。</li>
+<li><strong>滚轮不能加环数 &#x2F; 加倒角段数</strong>：必须用快捷键进入操作，不能点工具栏图标；也不要在操作中先点空白处确认。</li>
+<li><strong>倒角变歪、变扇形</strong>：多半有重叠点。点模式 <code>A</code> 全选 → <code>M</code> 按距离合并 → 重新倒角。</li>
+<li><strong>环切切不动</strong>：检查是不是四边形区域；三角面、n-gon 会中断环切。</li>
+<li><strong>栅格填充没反应</strong>：边数是奇数。先细分一条边凑成偶数。</li>
+<li><strong>桥接报错</strong>：两个物体没合并（先 <code>Ctrl + J</code>），或者两圈边数不一样。</li>
+<li><strong>切刀切完线没了</strong>：按了 <code>Esc</code>。<code>Esc</code> 是放弃，确认要用空格或回车。</li>
+<li><strong>分离后一动全动</strong>：关掉衰减编辑（<code>O</code>），或检查轴心点。</li>
+<li><strong>按 <code>Alt + Z</code> 弹出显卡面板</strong>：驱动热键冲突，去驱动里改掉。</li>
+</ol>
+<hr>
+<h2 id="练习：把十个动作串起来"><a href="#练习：把十个动作串起来" class="headerlink" title="练习：把十个动作串起来"></a>练习：把十个动作串起来</h2><ol>
+<li>新建立方体 → <code>I</code> 内插顶面 → <code>E</code> 向上挤出 → <code>Ctrl + B</code> 给四条竖边倒角 → <code>Ctrl + R</code> 加两圈线，做一个带圆角的”音箱”。</li>
+<li>新建两个圆柱，物体模式 <code>Ctrl + J</code> 合并 → 编辑模式各选一圈边 → <code>Ctrl + E</code> 桥接，做一根弯管。</li>
+<li>用 <code>K</code> 切刀在一个面上切出简单的字母轮廓，再 <code>E</code> 挤出，做立体字。</li>
+<li>立方体选顶面 <code>I</code> 内插 → 删掉中间的面 → 选一圈边 <code>V</code> 断开、<code>G</code> 掀起，做一个开盖的盒子。</li>
+<li>用 <code>Alt + E</code> → 挤出流形做一条分支管道，对比普通 <code>E</code> 挤出留下的内部面。</li>
+</ol>
+<hr>
+<h2 id="复盘"><a href="#复盘" class="headerlink" title="复盘"></a>复盘</h2><ul>
+<li><strong>造型五件套</strong>：挤出（长）、内插（缩）、倒角（圆）、环切（加线）、挤出流形（干净地长）。</li>
+<li><strong>修整五件套</strong>：合并（焊点）、断开（撕开）、封面（补洞）、切刀（加刀）、桥接（连边）。</li>
+<li><strong>两条铁律</strong>：右键取消不等于撤销；两个物体要先合并才能桥接。</li>
+</ul>
+<hr>
+<p><strong>参考</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14u41147YH/?p=7">【Kurt】Blender 零基础入门教程（P7 十大建模操作）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lilith-lt/p/19541008">同课学习笔记：Blender 十大建模操作</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.blender.org/manual/zh-hans/latest/modeling/meshes/editing/index.html">Blender 官方手册：网格编辑</a></li>
+</ul>
+
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/40337f4f2546/">Blender 建模篇 2.1：点线面的选择与控制</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer fs12"><hr><div><p>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处</p>
+<p>本站由 <a href="https://blog.kaixin09.cn/">@Kaixin09</a> 创建，托管于 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> &amp; <a target="_blank" rel="noopener" href="https://www.jsdelivr.com/">Jsdelivr</a> &amp; <a target="_blank" rel="noopener" href="https://vercel.com/">Vercel</a>，<a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鲁ICP备20030006号</a></p>
+<div><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>，<span id="busuanzi_container_site_pv">总访问量: <span id="busuanzi_value_site_pv"></span>次</span>，<span id="busuanzi_container_site_uv">访客数: <span id="busuanzi_value_site_uv"></span>人</span></div><p><a target="_blank" rel="noopener" href="https://travellings.link/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="100"></a>  <a target="_blank" rel="noopener" href="https://www.foreverblog.cn/go.html"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.foreverblog.cn/wormhole_4_tp.gif" alt="虫洞-随机访问十年之约成员博客" width="100"></a></p>
+</div></footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+  function createtime() {
+    var now = new Date();
+    var grt= new Date("11/15/2023 20:00:00");
+    now.setTime(now.getTime()+250);
+    days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+    hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+    if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+    seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+    document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+  };
+  setInterval("createtime()",250);
+</script>
+
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.19.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":true,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
