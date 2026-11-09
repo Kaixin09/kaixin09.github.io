@@ -20,6 +20,9 @@ https://blog.kaixin09.cn/fed1903aae45/
 https://blog.kaixin09.cn/categories/index.html
 https://blog.kaixin09.cn/tags/index.html
 https://blog.kaixin09.cn/
+https://blog.kaixin09.cn/tags/Blender/
+https://blog.kaixin09.cn/tags/%E5%BB%BA%E6%A8%A1/
+https://blog.kaixin09.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
 https://blog.kaixin09.cn/tags/docker/
 https://blog.kaixin09.cn/tags/mysql/
 https://blog.kaixin09.cn/tags/Hexo/
@@ -36,7 +39,4 @@ https://blog.kaixin09.cn/tags/Vercel/
 https://blog.kaixin09.cn/tags/Code-Server/
 https://blog.kaixin09.cn/tags/https/
 https://blog.kaixin09.cn/tags/Portainer-CE/
-https://blog.kaixin09.cn/tags/Blender/
-https://blog.kaixin09.cn/tags/%E5%BB%BA%E6%A8%A1/
-https://blog.kaixin09.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
 https://blog.kaixin09.cn/categories/Blender/
